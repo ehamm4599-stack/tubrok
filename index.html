@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+```
+<meta name="theme-color" content="#0b0d12">
+<meta name="description" content="عامل دليفري - تطبيق يساعدك على الوصول إلى العمال وأصحاب المهن والخدمات بسهولة.">
+<meta name="robots" content="index, follow">
+
+<title>عامل دليفري | حمّل التطبيق</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family:
+            Arial,
+            "Segoe UI",
+            Tahoma,
+            sans-serif;
+        background:
+            radial-gradient(circle at 50% 0%, rgba(220, 30, 45, 0.16), transparent 34%),
+            linear-gradient(180deg, #0b0d12 0%, #10131a 52%, #090b10 100%);
+        color: #ffffff;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    button {
+        font-family: inherit;
+    }
+
+    .page {
+        width: 100%;
+        min-height: 100vh;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* خلفية زخرفية */
+    .glow {
+        position: absolute;
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        background: rgba(225, 31, 48, 0.09);
+        filter: blur(70px);
+        pointer-events: none;
+    }
+
+    .glow.one {
+        top: 80px;
+        right: -120px;
+    }
+
+    .glow.two {
+        bottom: 80px;
+        left: -130px;
+    }
+
+    /* المحتوى الرئيسي */
+    .container {
+        width: min(100% - 32px, 520px);
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 34px 0 25px;
+    }
+
+    /* الشعار */
+    .logo-wrapper {
+        width: 112px;
+        height: 112px;
+        border-radius: 30px;
+        background: rgba(255, 255, 255, 0.055);
+        border: 1px solid rgba(255, 255, 255, 0.10);
+        box-shadow:
+            0 18px 55px rgba(0, 0, 0, 0.38),
+            0 0 35px rgba(225, 31, 48, 0.08);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 13px;
+        margin-bottom: 22px;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+
+    .logo {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 22px;
+    }
+
+    /* اسم التطبيق */
+    .brand {
+        font-size: 34px;
+        font-weight: 900;
+        letter-spacing: -1px;
+        margin-bottom: 9px;
+        text-align: center;
+    }
+
+    .brand span {
+        color: #ef3347;
+    }
+
+    .subtitle {
+        color: #aeb4c0;
+        font-size: 15px;
+        line-height: 1.9;
+        text-align: center;
+        max-width: 410px;
+        margin-bottom: 27px;
+    }
+
+    /* بطاقة التحميل */
+    .download-card {
+        width: 100%;
+        padding: 24px 20px 20px;
+        border-radius: 26px;
+        background:
+            linear-gradient(
+                145deg,
+                rgba(255, 255, 255, 0.075),
+                rgba(255, 255, 255, 0.025)
+            );
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        box-shadow:
+            0 25px 80px rgba(0, 0, 0, 0.35),
+            inset 0 1px 0 rgba(255, 255, 255, 0.035);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+    }
+
+    .card-title {
+        font-size: 19px;
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: 7px;
+    }
+
+    .card-text {
+        color: #9fa6b3;
+        font-size: 13px;
+        line-height: 1.8;
+        text-align: center;
+        margin-bottom: 19px;
+    }
+
+    /* أزرار المتاجر */
+    .store-button {
+        width: 100%;
+        min-height: 68px;
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 11px 15px;
+        margin-top: 11px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: #171a21;
+        transition:
+            transform 0.18s ease,
+            background 0.18s ease,
+            border-color 0.18s ease,
+            box-shadow 0.18s ease;
+        cursor: pointer;
+    }
+
+    .store-button:hover {
+        transform: translateY(-2px);
+        background: #1d2028;
+        border-color: rgba(255, 255, 255, 0.16);
+    }
+
+    .store-button:active {
+        transform: scale(0.985);
+    }
+
+    .store-icon {
+        width: 44px;
+        height: 44px;
+        flex: 0 0 44px;
+        border-radius: 13px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 23px;
+        font-weight: 900;
+        background: #222631;
+    }
+
+    .android .store-icon {
+        color: #65d36e;
+    }
+
+    .ios .store-icon {
+        color: #ffffff;
+    }
+
+    .store-info {
+        flex: 1;
+        text-align: right;
+    }
+
+    .store-small {
+        display: block;
+        color: #9299a7;
+        font-size: 11px;
+        margin-bottom: 3px;
+    }
+
+    .store-name {
+        display: block;
+        font-size: 17px;
+        font-weight: 800;
+    }
+
+    .arrow {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #858c99;
+        font-size: 18px;
+    }
+
+    /* الزر الموصى به حسب الجهاز */
+    .recommended {
+        border-color: rgba(239, 51, 71, 0.55);
+        background:
+            linear-gradient(
+                135deg,
+                rgba(239, 51, 71, 0.16),
+                rgba(255, 255, 255, 0.045)
+            );
+        box-shadow: 0 10px 35px rgba(239, 51, 71, 0.09);
+    }
+
+    .recommended .arrow {
+        color: #ef3347;
+    }
+
+    .recommended-label {
+        display: none;
+        width: fit-content;
+        margin: 15px auto 0;
+        padding: 7px 12px;
+        border-radius: 999px;
+        background: rgba(239, 51, 71, 0.10);
+        border: 1px solid rgba(239, 51, 71, 0.18);
+        color: #ff6475;
+        font-size: 11px;
+        font-weight: 700;
+    }
+
+    /* المميزات */
+    .features {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 9px;
+        margin-top: 15px;
+    }
+
+    .feature {
+        min-height: 76px;
+        border-radius: 17px;
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 9px 5px;
+        text-align: center;
+    }
+
+    .feature-icon {
+        font-size: 20px;
+        margin-bottom: 6px;
+    }
+
+    .feature-text {
+        color: #b4bac5;
+        font-size: 10px;
+        line-height: 1.5;
+    }
+
+    /* معلومات */
+    .info {
+        margin-top: 23px;
+        text-align: center;
+    }
+
+    .info p {
+        color: #737b89;
+        font-size: 11px;
+        line-height: 1.8;
+    }
+
+    .footer {
+        margin-top: 13px;
+        color: #565e6c;
+        font-size: 10px;
+        text-align: center;
+    }
+
+    /* حالة عدم وجود رابط */
+    .disabled {
+        opacity: 0.48;
+        cursor: not-allowed;
+    }
+
+    /* شاشة صغيرة */
+    @media (max-width: 380px) {
+        .container {
+            width: min(100% - 22px, 520px);
+        }
+
+        .hero {
+            padding-top: 25px;
+        }
+
+        .logo-wrapper {
+            width: 96px;
+            height: 96px;
+            border-radius: 26px;
+        }
+
+        .brand {
+            font-size: 30px;
+        }
+
+        .download-card {
+            padding: 20px 14px 15px;
+            border-radius: 22px;
+        }
+
+        .store-button {
+            min-height: 63px;
+        }
+
+        .features {
+            gap: 6px;
+        }
+    }
+
+    /* شاشات كبيرة */
+    @media (min-width: 700px) {
+        .hero {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .logo-wrapper {
+            width: 125px;
+            height: 125px;
+        }
+
+        .brand {
+            font-size: 39px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+        }
+    }
+
+    /* حركة دخول */
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .logo-wrapper {
+        animation: fadeUp 0.55s ease both;
+    }
+
+    .brand {
+        animation: fadeUp 0.55s 0.08s ease both;
+    }
+
+    .subtitle {
+        animation: fadeUp 0.55s 0.14s ease both;
+    }
+
+    .download-card {
+        animation: fadeUp 0.55s 0.20s ease both;
+    }
+
+    .features {
+        animation: fadeUp 0.55s 0.26s ease both;
+    }
+
+    .info {
+        animation: fadeUp 0.55s 0.32s ease both;
+    }
+
+    /* احترام تقليل الحركة */
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation: none !important;
+            transition: none !important;
+            scroll-behavior: auto !important;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+<div class="page">
+
+```
+<div class="glow one"></div>
+<div class="glow two"></div>
+
+<main class="container">
+
+    <section class="hero">
+
+        <!-- شعار عامل دليفري -->
+        <div class="logo-wrapper">
+            <img
+                src="logo.png"
+                alt="شعار عامل دليفري"
+                class="logo"
+                onerror="this.style.display='none'; this.parentElement.innerHTML='<strong style=&quot;font-size:38px;color:#ef3347&quot;>ع</strong>';"
+            >
+        </div>
+
+        <!-- اسم التطبيق -->
+        <h1 class="brand">
+            عامل <span>دليفري</span>
+        </h1>
+
+        <p class="subtitle">
+            تطبيق يساعدك على الوصول إلى العمال وأصحاب المهن
+            والخدمات بسهولة، والتواصل معهم مباشرة عند الحاجة.
+        </p>
+
+        <!-- بطاقة التحميل -->
+        <div class="download-card">
+
+            <h2 class="card-title">
+                حمّل تطبيق عامل دليفري
+            </h2>
+
+            <p class="card-text">
+                اختر نظام هاتفك للانتقال إلى صفحة التطبيق الرسمية.
+            </p>
+
+            <!-- Android -->
+            <a
+                id="androidButton"
+                class="store-button android"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <div class="store-icon">
+                    ▶
+                </div>
+
+                <div class="store-info">
+                    <span class="store-small">
+                        متوفر على
+                    </span>
+
+                    <span class="store-name">
+                        Google Play
+                    </span>
+                </div>
+
+                <div class="arrow">
+                    ←
+                </div>
+            </a>
+
+            <!-- iPhone -->
+            <a
+                id="iosButton"
+                class="store-button ios"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <div class="store-icon">
+                    
+                </div>
+
+                <div class="store-info">
+                    <span class="store-small">
+                        متوفر على
+                    </span>
+
+                    <span class="store-name">
+                        App Store
+                    </span>
+                </div>
+
+                <div class="arrow">
+                    ←
+                </div>
+            </a>
+
+            <div id="recommendedLabel" class="recommended-label">
+                مناسب لجهازك
+            </div>
+
+        </div>
+
+        <!-- مميزات -->
+        <div class="features">
+
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <div class="feature-text">
+                    وصول سريع
+                </div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">👷</div>
+                <div class="feature-text">
+                    عمال ومهن
+                </div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">📱</div>
+                <div class="feature-text">
+                    سهل الاستخدام
+                </div>
+            </div>
+
+        </div>
+
+        <div class="info">
+            <p>
+                عامل دليفري — الوصول إلى الخدمة التي تحتاجها أصبح أسهل.
+            </p>
+        </div>
+
+        <div class="footer">
+            © <span id="year"></span> عامل دليفري — جميع الحقوق محفوظة
+        </div>
+
+    </section>
+
+</main>
+```
+
+</div>
+
+<script>
+    /*
+    ============================================================
+    روابط التطبيقات
+    ============================================================
+
+    ضع هنا الرابط الحقيقي لتطبيق Android من Google Play
+    وضع هنا الرابط الحقيقي لتطبيق iPhone من App Store.
+    */
+
+    const ANDROID_URL = "ضع-هنا-رابط-Google-Play";
+    const IOS_URL = "ضع-هنا-رابط-App-Store";
+
+
+    /*
+    ============================================================
+    ربط الأزرار
+    ============================================================
+    */
+
+    const androidButton = document.getElementById("androidButton");
+    const iosButton = document.getElementById("iosButton");
+    const recommendedLabel = document.getElementById("recommendedLabel");
+
+
+    androidButton.href = ANDROID_URL;
+    iosButton.href = IOS_URL;
+
+
+    /*
+    ============================================================
+    السنة الحالية
+    ============================================================
+    */
+
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+
+    /*
+    ============================================================
+    اكتشاف نوع الجهاز
+    ============================================================
+    */
+
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    const isAndroid = /android/i.test(userAgent);
+
+    const isIOS =
+        /iPad|iPhone|iPod/i.test(userAgent) ||
+        (
+            navigator.platform === "MacIntel" &&
+            navigator.maxTouchPoints > 1
+        );
+
+
+    /*
+    ============================================================
+    إبراز زر المتجر المناسب
+    ============================================================
+    */
+
+    if (isAndroid) {
+
+        androidButton.classList.add("recommended");
+
+        recommendedLabel.style.display = "block";
+
+        recommendedLabel.textContent =
+            "موصى به لجهاز Android";
+
+    } else if (isIOS) {
+
+        iosButton.classList.add("recommended");
+
+        recommendedLabel.style.display = "block";
+
+        recommendedLabel.textContent =
+            "موصى به لجهاز iPhone";
+
+    }
+
+
+    /*
+    ============================================================
+    منع الضغط على الروابط إذا لم يتم وضع الروابط الحقيقية
+    ============================================================
+    */
+
+    function validUrl(url) {
+        return (
+            typeof url === "string" &&
+            (
+                url.startsWith("http://") ||
+                url.startsWith("https://")
+            )
+        );
+    }
+
+
+    function setupButton(button, url) {
+
+        if (!validUrl(url)) {
+
+            button.classList.add("disabled");
+
+            button.addEventListener("click", function(event) {
+
+                event.preventDefault();
+
+                alert(
+                    "رابط التطبيق لم تتم إضافته بعد."
+                );
+
+            });
+
+        }
+
+    }
+
+
+    setupButton(androidButton, ANDROID_URL);
+    setupButton(iosButton, IOS_URL);
+</script>
+
+</body>
+</html>
