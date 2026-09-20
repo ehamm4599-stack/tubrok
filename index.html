@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <meta name="theme-color" content="#0b0d12">
-    <meta name="description" content="عامل دليفري - تطبيق يساعدك على الوصول إلى العمال وأصحاب المهن والخدمات بسهولة.">
+    <meta name="theme-color" content="#08090d">
+    <meta name="description" content="عامل دليفري - منصة للوصول إلى العمال وأصحاب المهن والخدمات بسهولة.">
     <meta name="robots" content="index, follow">
 
-    <title>عامل دليفري | تحميل التطبيق</title>
+    <title>عامل دليفري | منصة العمال والخدمات</title>
 
     <style>
+        /* =========================================================
+           RESET
+        ========================================================= */
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         html {
@@ -22,203 +25,472 @@
         }
 
         body {
-            font-family: Arial, "Segoe UI", Tahoma, sans-serif;
-            background:
-                radial-gradient(
-                    circle at 50% 0%,
-                    rgba(220, 30, 45, 0.16),
-                    transparent 34%
-                ),
-                linear-gradient(
-                    180deg,
-                    #0b0d12 0%,
-                    #10131a 52%,
-                    #090b10 100%
-                );
-            color: #fff;
             min-height: 100vh;
             overflow-x: hidden;
+            font-family:
+                "Segoe UI",
+                Tahoma,
+                Arial,
+                sans-serif;
+            color: #fff;
+            background:
+                radial-gradient(
+                    circle at 50% -10%,
+                    rgba(239, 51, 71, .25),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 100% 60%,
+                    rgba(239, 51, 71, .10),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 0% 80%,
+                    rgba(255, 255, 255, .04),
+                    transparent 25%
+                ),
+                linear-gradient(
+                    145deg,
+                    #07080c 0%,
+                    #0d1016 45%,
+                    #07080c 100%
+                );
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: .18;
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,.025) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,.025) 1px,
+                    transparent 1px
+                );
+            background-size: 42px 42px;
+            mask-image: linear-gradient(
+                to bottom,
+                black,
+                transparent 90%
+            );
         }
 
         a {
-            text-decoration: none;
             color: inherit;
+            text-decoration: none;
         }
 
         button {
-            font-family: inherit;
+            font: inherit;
         }
 
+        /* =========================================================
+           PAGE
+        ========================================================= */
+
         .page {
-            width: 100%;
             min-height: 100vh;
             position: relative;
             overflow: hidden;
         }
 
-        .glow {
-            position: absolute;
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            background: rgba(225, 31, 48, 0.09);
-            filter: blur(70px);
-            pointer-events: none;
-        }
-
-        .glow.one {
-            top: 80px;
-            right: -120px;
-        }
-
-        .glow.two {
-            bottom: 80px;
-            left: -130px;
-        }
-
         .container {
-            width: min(100% - 32px, 520px);
-            margin: 0 auto;
+            width: min(1180px, calc(100% - 34px));
+            min-height: 100vh;
+            margin: auto;
             position: relative;
             z-index: 2;
         }
 
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 34px 0 25px;
+        /* =========================================================
+           GLOW
+        ========================================================= */
+
+        .glow {
+            position: fixed;
+            width: 420px;
+            height: 420px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: .35;
+            pointer-events: none;
+            z-index: 0;
+            animation: floatingGlow 8s ease-in-out infinite alternate;
         }
 
-        /* الشعار */
-        .logo-wrapper {
-            width: 112px;
-            height: 112px;
-            border-radius: 30px;
-            background: rgba(255, 255, 255, 0.055);
-            border: 1px solid rgba(255, 255, 255, 0.10);
-            box-shadow:
-                0 18px 55px rgba(0, 0, 0, 0.38),
-                0 0 35px rgba(225, 31, 48, 0.08);
+        .glow.one {
+            top: -170px;
+            right: -100px;
+            background: rgba(239, 51, 71, .22);
+        }
+
+        .glow.two {
+            bottom: -190px;
+            left: -100px;
+            background: rgba(239, 51, 71, .14);
+            animation-delay: 2s;
+        }
+
+        @keyframes floatingGlow {
+            from {
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+
+            to {
+                transform: translate3d(0, 30px, 0) scale(1.08);
+            }
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            align-items: center;
+            gap: 70px;
+            padding: 55px 0;
+        }
+
+        /* =========================================================
+           LEFT / TEXT
+        ========================================================= */
+
+        .content {
+            text-align: right;
+            animation: fadeUp .7s ease both;
+        }
+
+        .badge {
+            width: fit-content;
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 9px 14px;
+            margin-bottom: 22px;
+            border-radius: 999px;
+            color: #ff7785;
+            font-size: 13px;
+            font-weight: 800;
+            background: rgba(239, 51, 71, .08);
+            border: 1px solid rgba(239, 51, 71, .20);
+            box-shadow: 0 8px 30px rgba(239, 51, 71, .07);
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ef3347;
+            box-shadow: 0 0 15px #ef3347;
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: .45;
+                transform: scale(.72);
+            }
+        }
+
+        .brand {
+            font-size: clamp(42px, 6vw, 78px);
+            line-height: 1.05;
+            font-weight: 950;
+            letter-spacing: -3px;
+            margin-bottom: 22px;
+        }
+
+        .brand span {
+            color: #ef3347;
+            text-shadow:
+                0 0 30px rgba(239, 51, 71, .22);
+        }
+
+        .subtitle {
+            max-width: 590px;
+            color: #aeb5c2;
+            font-size: clamp(16px, 2vw, 19px);
+            line-height: 2;
+            margin-bottom: 30px;
+        }
+
+        .highlight {
+            color: #fff;
+            font-weight: 800;
+        }
+
+        /* =========================================================
+           FEATURES
+        ========================================================= */
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 11px;
+            max-width: 620px;
+            margin-top: 25px;
+        }
+
+        .feature {
+            min-height: 105px;
+            padding: 15px 10px;
+            border-radius: 20px;
+            text-align: center;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.065),
+                    rgba(255,255,255,.018)
+                );
+
+            border: 1px solid rgba(255,255,255,.075);
+
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+
+            transition:
+                transform .25s ease,
+                border-color .25s ease,
+                background .25s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            border-color: rgba(239,51,71,.30);
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(239,51,71,.10),
+                    rgba(255,255,255,.025)
+                );
+        }
+
+        .feature-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 8px;
+
+            font-size: 21px;
+
+            background: rgba(255,255,255,.055);
+        }
+
+        .feature-text {
+            color: #b8bec9;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        /* =========================================================
+           DOWNLOAD PANEL
+        ========================================================= */
+
+        .download-area {
             display: flex;
             justify-content: center;
-            align-items: center;
-            padding: 13px;
+            animation: fadeUp .8s .12s ease both;
+        }
+
+        .download-card {
+            width: min(100%, 440px);
+            padding: 28px;
+            border-radius: 34px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.09),
+                    rgba(255,255,255,.025)
+                );
+
+            border: 1px solid rgba(255,255,255,.10);
+
+            box-shadow:
+                0 35px 100px rgba(0,0,0,.45),
+                inset 0 1px 0 rgba(255,255,255,.06);
+
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-card::before {
+            content: "";
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            top: -130px;
+            left: -100px;
+            border-radius: 50%;
+            background: rgba(239,51,71,.14);
+            filter: blur(50px);
+        }
+
+        /* =========================================================
+           LOGO
+        ========================================================= */
+
+        .logo-area {
+            display: flex;
+            justify-content: center;
             margin-bottom: 22px;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .logo-wrapper {
+            width: 145px;
+            height: 145px;
+            padding: 12px;
+
+            border-radius: 38px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.12),
+                    rgba(255,255,255,.025)
+                );
+
+            border: 1px solid rgba(255,255,255,.13);
+
+            box-shadow:
+                0 25px 65px rgba(0,0,0,.45),
+                0 0 50px rgba(239,51,71,.10);
+
+            position: relative;
+        }
+
+        .logo-wrapper::after {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            border-radius: inherit;
+            border: 1px solid rgba(239,51,71,.13);
+            pointer-events: none;
         }
 
         .logo {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            border-radius: 22px;
+            border-radius: 28px;
         }
 
-        /* اسم التطبيق */
-        .brand {
-            font-size: 34px;
-            font-weight: 900;
-            letter-spacing: -1px;
-            margin-bottom: 9px;
-            text-align: center;
-        }
-
-        .brand span {
-            color: #ef3347;
-        }
-
-        .subtitle {
-            color: #aeb4c0;
-            font-size: 15px;
-            line-height: 1.9;
-            text-align: center;
-            max-width: 410px;
-            margin-bottom: 27px;
-        }
-
-        /* بطاقة التحميل */
-        .download-card {
-            width: 100%;
-            padding: 24px 20px 20px;
-            border-radius: 26px;
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255, 255, 255, 0.075),
-                    rgba(255, 255, 255, 0.025)
-                );
-            border: 1px solid rgba(255, 255, 255, 0.09);
-            box-shadow:
-                0 25px 80px rgba(0, 0, 0, 0.35),
-                inset 0 1px 0 rgba(255, 255, 255, 0.035);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-        }
+        /* =========================================================
+           CARD TEXT
+        ========================================================= */
 
         .card-title {
-            font-size: 19px;
-            font-weight: 800;
+            position: relative;
             text-align: center;
-            margin-bottom: 7px;
+            font-size: 25px;
+            font-weight: 900;
+            margin-bottom: 8px;
         }
 
         .card-text {
-            color: #9fa6b3;
+            position: relative;
+            text-align: center;
+            color: #929aa8;
             font-size: 13px;
             line-height: 1.8;
-            text-align: center;
-            margin-bottom: 19px;
+            margin-bottom: 20px;
         }
 
-        /* زر تحميل APK */
+        /* =========================================================
+           DOWNLOAD BUTTON
+        ========================================================= */
+
         .store-button {
+            min-height: 78px;
             width: 100%;
-            min-height: 68px;
-            border-radius: 18px;
+
             display: flex;
             align-items: center;
-            gap: 14px;
-            padding: 11px 15px;
-            margin-top: 11px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            background: #171a21;
+            gap: 15px;
+
+            padding: 12px 15px;
+
+            border-radius: 21px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(239,51,71,.20),
+                    rgba(239,51,71,.055)
+                );
+
+            border: 1px solid rgba(239,51,71,.42);
+
+            box-shadow:
+                0 15px 45px rgba(239,51,71,.11);
+
             transition:
-                transform 0.18s ease,
-                background 0.18s ease,
-                border-color 0.18s ease,
-                box-shadow 0.18s ease;
-            cursor: pointer;
+                transform .2s ease,
+                box-shadow .2s ease,
+                border-color .2s ease;
         }
 
         .store-button:hover {
-            transform: translateY(-2px);
-            background: #1d2028;
-            border-color: rgba(255, 255, 255, 0.16);
+            transform: translateY(-4px);
+            border-color: rgba(239,51,71,.70);
+            box-shadow:
+                0 20px 55px rgba(239,51,71,.19);
         }
 
         .store-button:active {
-            transform: scale(0.985);
+            transform: scale(.98);
         }
 
         .store-icon {
-            width: 44px;
-            height: 44px;
-            flex: 0 0 44px;
-            border-radius: 13px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 23px;
-            font-weight: 900;
-            background: #222631;
-        }
+            width: 50px;
+            height: 50px;
+            flex: 0 0 50px;
 
-        .android .store-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 16px;
+
+            background: #171a21;
             color: #65d36e;
+
+            font-size: 22px;
+
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,.06);
         }
 
         .store-info {
@@ -228,166 +500,95 @@
 
         .store-small {
             display: block;
-            color: #9299a7;
+            color: #999fac;
             font-size: 11px;
-            margin-bottom: 3px;
+            margin-bottom: 4px;
         }
 
         .store-name {
             display: block;
             font-size: 17px;
-            font-weight: 800;
+            font-weight: 900;
         }
 
         .arrow {
-            width: 28px;
-            height: 28px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
+
             display: flex;
-            justify-content: center;
             align-items: center;
-            color: #858c99;
-            font-size: 18px;
-        }
+            justify-content: center;
 
-        .recommended {
-            border-color: rgba(239, 51, 71, 0.55);
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(239, 51, 71, 0.16),
-                    rgba(255, 255, 255, 0.045)
-                );
-            box-shadow: 0 10px 35px rgba(239, 51, 71, 0.09);
-        }
+            color: #ff6374;
+            background: rgba(239,51,71,.08);
 
-        .recommended .arrow {
-            color: #ef3347;
+            font-size: 20px;
         }
 
         .recommended-label {
-            display: none;
             width: fit-content;
-            margin: 15px auto 0;
-            padding: 7px 12px;
+            margin: 14px auto 0;
+            padding: 7px 13px;
+
             border-radius: 999px;
-            background: rgba(239, 51, 71, 0.10);
-            border: 1px solid rgba(239, 51, 71, 0.18);
-            color: #ff6475;
+
+            color: #ff7180;
+            background: rgba(239,51,71,.07);
+            border: 1px solid rgba(239,51,71,.14);
+
             font-size: 11px;
-            font-weight: 700;
+            font-weight: 800;
         }
 
-        /* المميزات */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 9px;
-            margin-top: 15px;
-        }
+        /* =========================================================
+           INFO
+        ========================================================= */
 
-        .feature {
-            min-height: 76px;
-            border-radius: 17px;
-            background: rgba(255, 255, 255, 0.035);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+        .security {
             display: flex;
-            flex-direction: column;
             justify-content: center;
+            gap: 9px;
             align-items: center;
-            padding: 9px 5px;
+
+            margin-top: 18px;
+
+            color: #747c89;
+            font-size: 10px;
             text-align: center;
         }
 
-        .feature-icon {
-            font-size: 20px;
-            margin-bottom: 6px;
-        }
-
-        .feature-text {
-            color: #b4bac5;
-            font-size: 10px;
-            line-height: 1.5;
+        .security-icon {
+            color: #65d36e;
+            font-size: 13px;
         }
 
         .info {
-            margin-top: 23px;
+            margin-top: 25px;
             text-align: center;
         }
 
         .info p {
-            color: #737b89;
+            color: #747b88;
             font-size: 11px;
             line-height: 1.8;
         }
 
         .footer {
-            margin-top: 13px;
-            color: #565e6c;
+            margin-top: 12px;
+            color: #4e5663;
             font-size: 10px;
             text-align: center;
         }
 
-        /* شاشات صغيرة */
-        @media (max-width: 380px) {
-            .container {
-                width: min(100% - 22px, 520px);
-            }
+        /* =========================================================
+           ANIMATION
+        ========================================================= */
 
-            .hero {
-                padding-top: 25px;
-            }
-
-            .logo-wrapper {
-                width: 96px;
-                height: 96px;
-                border-radius: 26px;
-            }
-
-            .brand {
-                font-size: 30px;
-            }
-
-            .download-card {
-                padding: 20px 14px 15px;
-                border-radius: 22px;
-            }
-
-            .store-button {
-                min-height: 63px;
-            }
-
-            .features {
-                gap: 6px;
-            }
-        }
-
-        /* شاشات كبيرة */
-        @media (min-width: 700px) {
-            .hero {
-                padding-top: 50px;
-                padding-bottom: 50px;
-            }
-
-            .logo-wrapper {
-                width: 125px;
-                height: 125px;
-            }
-
-            .brand {
-                font-size: 39px;
-            }
-
-            .subtitle {
-                font-size: 16px;
-            }
-        }
-
-        /* حركة دخول */
         @keyframes fadeUp {
             from {
                 opacity: 0;
-                transform: translateY(15px);
+                transform: translateY(25px);
             }
 
             to {
@@ -396,31 +597,193 @@
             }
         }
 
-        .logo-wrapper {
-            animation: fadeUp 0.55s ease both;
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 35px;
+                padding: 45px 0;
+            }
+
+            .content {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .subtitle {
+                max-width: 650px;
+            }
+
+            .features {
+                width: 100%;
+                max-width: 600px;
+            }
+
+            .download-area {
+                width: 100%;
+            }
         }
 
-        .brand {
-            animation: fadeUp 0.55s 0.08s ease both;
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 600px) {
+
+            .container {
+                width: min(100% - 22px, 520px);
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 28px 0 25px;
+                gap: 27px;
+            }
+
+            .brand {
+                font-size: clamp(39px, 12vw, 58px);
+                letter-spacing: -2px;
+            }
+
+            .subtitle {
+                font-size: 14px;
+                line-height: 1.9;
+                margin-bottom: 5px;
+            }
+
+            .download-card {
+                padding: 21px 15px 18px;
+                border-radius: 27px;
+            }
+
+            .logo-wrapper {
+                width: 112px;
+                height: 112px;
+                border-radius: 30px;
+                padding: 10px;
+            }
+
+            .logo {
+                border-radius: 22px;
+            }
+
+            .card-title {
+                font-size: 21px;
+            }
+
+            .card-text {
+                font-size: 12px;
+            }
+
+            .store-button {
+                min-height: 70px;
+                border-radius: 18px;
+            }
+
+            .store-icon {
+                width: 44px;
+                height: 44px;
+                flex-basis: 44px;
+                border-radius: 13px;
+            }
+
+            .store-name {
+                font-size: 15px;
+            }
+
+            .features {
+                gap: 7px;
+            }
+
+            .feature {
+                min-height: 88px;
+                border-radius: 16px;
+            }
+
+            .feature-icon {
+                width: 35px;
+                height: 35px;
+                border-radius: 11px;
+                font-size: 18px;
+            }
+
+            .feature-text {
+                font-size: 9px;
+            }
         }
 
-        .subtitle {
-            animation: fadeUp 0.55s 0.14s ease both;
+        /* =========================================================
+           VERY SMALL PHONES
+        ========================================================= */
+
+        @media (max-width: 360px) {
+
+            .container {
+                width: calc(100% - 16px);
+            }
+
+            .hero {
+                padding-top: 22px;
+            }
+
+            .badge {
+                font-size: 11px;
+            }
+
+            .brand {
+                font-size: 36px;
+            }
+
+            .subtitle {
+                font-size: 13px;
+            }
+
+            .download-card {
+                padding: 18px 12px 15px;
+            }
+
+            .features {
+                gap: 5px;
+            }
+
+            .feature {
+                min-height: 80px;
+            }
         }
 
-        .download-card {
-            animation: fadeUp 0.55s 0.20s ease both;
+        /* =========================================================
+           LANDSCAPE MOBILE
+        ========================================================= */
+
+        @media (max-height: 600px) and (orientation: landscape) {
+
+            .hero {
+                min-height: auto;
+                padding: 25px 0;
+            }
+
+            .logo-wrapper {
+                width: 90px;
+                height: 90px;
+            }
+
+            .brand {
+                font-size: 38px;
+            }
         }
 
-        .features {
-            animation: fadeUp 0.55s 0.26s ease both;
-        }
-
-        .info {
-            animation: fadeUp 0.55s 0.32s ease both;
-        }
+        /* =========================================================
+           REDUCED MOTION
+        ========================================================= */
 
         @media (prefers-reduced-motion: reduce) {
+
             *,
             *::before,
             *::after {
@@ -443,130 +806,176 @@
 
         <section class="hero">
 
-            <!-- شعار عامل دليفري -->
-            <div class="logo-wrapper">
-                <img
-                    src="logo.png"
-                    alt="شعار عامل دليفري"
-                    class="logo"
-                    onerror="this.style.display='none'; this.parentElement.innerHTML='<strong style=&quot;font-size:38px;color:#ef3347&quot;>ع</strong>';"
-                >
+            <!-- ================================================
+                 النص الرئيسي
+            ================================================= -->
+
+            <div class="content">
+
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    منصة الخدمات والعمال
+                </div>
+
+                <h1 class="brand">
+                    عامل <span>دليفري</span>
+                </h1>
+
+                <p class="subtitle">
+                    وصّل خدمتك إلى العامل المناسب بسهولة.
+                    <span class="highlight">
+                        كهربائي، سباك، دهان، بناء، ميكانيكي
+                    </span>
+                    وغيرها من أصحاب المهن والخدمات.
+                </p>
+
+                <div class="features">
+
+                    <div class="feature">
+                        <div class="feature-icon">⚡</div>
+                        <div class="feature-text">
+                            وصول سريع
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">👷</div>
+                        <div class="feature-text">
+                            أصحاب مهن
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">📱</div>
+                        <div class="feature-text">
+                            استخدام سهل
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
 
-            <!-- اسم التطبيق -->
-            <h1 class="brand">
-                عامل <span>دليفري</span>
-            </h1>
 
-            <p class="subtitle">
-                تطبيق يساعدك على الوصول إلى العمال وأصحاب المهن
-                والخدمات بسهولة، والتواصل معهم مباشرة عند الحاجة.
+            <!-- ================================================
+                 بطاقة التحميل
+            ================================================= -->
+
+            <div class="download-area">
+
+                <div class="download-card">
+
+                    <div class="logo-area">
+
+                        <div class="logo-wrapper">
+
+                            <img
+                                src="logo.png"
+                                alt="شعار عامل دليفري"
+                                class="logo"
+                                onerror="
+                                    this.style.display='none';
+                                    this.parentElement.innerHTML=
+                                    '<strong style=&quot;font-size:48px;color:#ef3347&quot;>ع</strong>';
+                                "
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <h2 class="card-title">
+                        حمّل تطبيق عامل دليفري
+                    </h2>
+
+                    <p class="card-text">
+                        التطبيق متوفر الآن لهواتف Android
+                    </p>
+
+
+                    <!-- زر APK -->
+
+                    <a
+                        id="androidButton"
+                        class="store-button"
+                        href="تطبيق عامل دليفري.apk"
+                        download="عامل-دليفري.apk"
+                        aria-label="تحميل تطبيق عامل دليفري APK"
+                    >
+
+                        <div class="store-icon">
+                            ▶
+                        </div>
+
+                        <div class="store-info">
+
+                            <span class="store-small">
+                                تحميل مباشر
+                            </span>
+
+                            <span class="store-name">
+                                تطبيق عامل دليفري APK
+                            </span>
+
+                        </div>
+
+                        <div class="arrow">
+                            ↓
+                        </div>
+
+                    </a>
+
+
+                    <div
+                        id="recommendedLabel"
+                        class="recommended-label"
+                    >
+                        📱 مناسب لهواتف Android
+                    </div>
+
+
+                    <div class="security">
+
+                        <span class="security-icon">
+                            ✓
+                        </span>
+
+                        <span>
+                            تحميل مباشر من موقع عامل دليفري
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <div class="info">
+
+            <p>
+                عامل دليفري — الوصول إلى الخدمة التي تحتاجها أصبح أسهل.
             </p>
-
-            <!-- بطاقة التحميل -->
-            <div class="download-card">
-
-                <h2 class="card-title">
-                    حمّل تطبيق عامل دليفري
-                </h2>
-
-                <p class="card-text">
-                    حمّل التطبيق مباشرة على هاتف Android.
-                </p>
-
-                <!-- تحميل APK -->
-                <a
-                    id="androidButton"
-                    class="store-button android recommended"
-                    href="تطبيق عامل دليفري.apk"
-                    download="عامل-دليفري.apk"
-                >
-
-                    <div class="store-icon">
-                        ▶
-                    </div>
-
-                    <div class="store-info">
-                        <span class="store-small">
-                            تحميل مباشر
-                        </span>
-
-                        <span class="store-name">
-                            تطبيق عامل دليفري APK
-                        </span>
-                    </div>
-
-                    <div class="arrow">
-                        ↓
-                    </div>
-
-                </a>
-
-                <div
-                    id="recommendedLabel"
-                    class="recommended-label"
-                    style="display:block;"
-                >
-                    📱 مناسب لهواتف Android
-                </div>
-
-            </div>
-
-            <!-- المميزات -->
-            <div class="features">
-
-                <div class="feature">
-                    <div class="feature-icon">⚡</div>
-                    <div class="feature-text">
-                        وصول سريع
-                    </div>
-                </div>
-
-                <div class="feature">
-                    <div class="feature-icon">👷</div>
-                    <div class="feature-text">
-                        عمال ومهن
-                    </div>
-                </div>
-
-                <div class="feature">
-                    <div class="feature-icon">📱</div>
-                    <div class="feature-text">
-                        سهل الاستخدام
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="info">
-                <p>
-                    عامل دليفري — الوصول إلى الخدمة التي تحتاجها أصبح أسهل.
-                </p>
-            </div>
 
             <div class="footer">
                 © <span id="year"></span>
                 عامل دليفري — جميع الحقوق محفوظة
             </div>
 
-        </section>
+        </div>
 
     </main>
 
 </div>
 
+
 <script>
 
-    /*
-    ============================================================
-    ملف التطبيق
-    ============================================================
-
-    يجب أن يكون ملف APK في نفس مجلد index.html
-    واسم الملف:
-    
-    تطبيق عامل دليفري.apk
-    */
+    /* =========================================================
+       ملف APK
+    ========================================================= */
 
     const APK_URL = "تطبيق عامل دليفري.apk";
 
@@ -577,30 +986,20 @@
         document.getElementById("recommendedLabel");
 
 
-    /*
-    ============================================================
-    ربط زر التحميل
-    ============================================================
-    */
+    /* ربط زر التحميل */
 
     androidButton.href = APK_URL;
 
 
-    /*
-    ============================================================
-    السنة الحالية
-    ============================================================
-    */
+    /* السنة */
 
     document.getElementById("year").textContent =
         new Date().getFullYear();
 
 
-    /*
-    ============================================================
-    التحقق من نوع الجهاز
-    ============================================================
-    */
+    /* =========================================================
+       اكتشاف الجهاز
+    ========================================================= */
 
     const userAgent =
         navigator.userAgent ||
@@ -610,31 +1009,33 @@
     const isAndroid =
         /android/i.test(userAgent);
 
+    const isIOS =
+        /iPad|iPhone|iPod/i.test(userAgent);
+
+
     if (isAndroid) {
 
         recommendedLabel.textContent =
             "✓ مناسب لجهاز Android";
 
+    } else if (isIOS) {
+
+        recommendedLabel.textContent =
+            "📱 ملف APK مخصص لأجهزة Android";
+
     } else {
 
         recommendedLabel.textContent =
-            "📱 ملف APK لأجهزة Android";
+            "📱 تحميل التطبيق لأجهزة Android";
 
     }
 
 
-    /*
-    ============================================================
-    حماية بسيطة إذا لم يكن ملف APK موجوداً
-    ============================================================
-    */
+    /* =========================================================
+       رسالة بسيطة عند الضغط
+    ========================================================= */
 
     androidButton.addEventListener("click", function () {
-
-        /*
-        لا نمنع التحميل هنا.
-        المتصفح سيحاول تحميل ملف APK مباشرة.
-        */
 
         console.log(
             "جاري تحميل تطبيق عامل دليفري..."
