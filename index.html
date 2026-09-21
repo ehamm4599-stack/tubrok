@@ -1,1049 +1,1926 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-    <meta name="theme-color" content="#08090d">
-    <meta name="description" content="عامل دليفري - منصة للوصول إلى العمال وأصحاب المهن والخدمات بسهولة.">
-    <meta name="robots" content="index, follow">
-
-    <title>عامل دليفري | منصة العمال والخدمات</title>
-
-    <style>
-        /* =========================================================
-           RESET
-        ========================================================= */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            min-height: 100vh;
-            overflow-x: hidden;
-            font-family:
-                "Segoe UI",
-                Tahoma,
-                Arial,
-                sans-serif;
-            color: #fff;
-            background:
-                radial-gradient(
-                    circle at 50% -10%,
-                    rgba(239, 51, 71, .25),
-                    transparent 32%
-                ),
-                radial-gradient(
-                    circle at 100% 60%,
-                    rgba(239, 51, 71, .10),
-                    transparent 30%
-                ),
-                radial-gradient(
-                    circle at 0% 80%,
-                    rgba(255, 255, 255, .04),
-                    transparent 25%
-                ),
-                linear-gradient(
-                    145deg,
-                    #07080c 0%,
-                    #0d1016 45%,
-                    #07080c 100%
-                );
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            opacity: .18;
-            background-image:
-                linear-gradient(
-                    rgba(255,255,255,.025) 1px,
-                    transparent 1px
-                ),
-                linear-gradient(
-                    90deg,
-                    rgba(255,255,255,.025) 1px,
-                    transparent 1px
-                );
-            background-size: 42px 42px;
-            mask-image: linear-gradient(
-                to bottom,
-                black,
-                transparent 90%
-            );
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button {
-            font: inherit;
-        }
-
-        /* =========================================================
-           PAGE
-        ========================================================= */
-
-        .page {
-            min-height: 100vh;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .container {
-            width: min(1180px, calc(100% - 34px));
-            min-height: 100vh;
-            margin: auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* =========================================================
-           GLOW
-        ========================================================= */
-
-        .glow {
-            position: fixed;
-            width: 420px;
-            height: 420px;
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: .35;
-            pointer-events: none;
-            z-index: 0;
-            animation: floatingGlow 8s ease-in-out infinite alternate;
-        }
-
-        .glow.one {
-            top: -170px;
-            right: -100px;
-            background: rgba(239, 51, 71, .22);
-        }
-
-        .glow.two {
-            bottom: -190px;
-            left: -100px;
-            background: rgba(239, 51, 71, .14);
-            animation-delay: 2s;
-        }
-
-        @keyframes floatingGlow {
-            from {
-                transform: translate3d(0, 0, 0) scale(1);
-            }
-
-            to {
-                transform: translate3d(0, 30px, 0) scale(1.08);
-            }
-        }
-
-        /* =========================================================
-           HERO
-        ========================================================= */
-
-        .hero {
-            min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1.05fr .95fr;
-            align-items: center;
-            gap: 70px;
-            padding: 55px 0;
-        }
-
-        /* =========================================================
-           LEFT / TEXT
-        ========================================================= */
-
-        .content {
-            text-align: right;
-            animation: fadeUp .7s ease both;
-        }
-
-        .badge {
-            width: fit-content;
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            padding: 9px 14px;
-            margin-bottom: 22px;
-            border-radius: 999px;
-            color: #ff7785;
-            font-size: 13px;
-            font-weight: 800;
-            background: rgba(239, 51, 71, .08);
-            border: 1px solid rgba(239, 51, 71, .20);
-            box-shadow: 0 8px 30px rgba(239, 51, 71, .07);
-        }
-
-        .badge-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #ef3347;
-            box-shadow: 0 0 15px #ef3347;
-            animation: pulse 1.8s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: .45;
-                transform: scale(.72);
-            }
-        }
-
-        .brand {
-            font-size: clamp(42px, 6vw, 78px);
-            line-height: 1.05;
-            font-weight: 950;
-            letter-spacing: -3px;
-            margin-bottom: 22px;
-        }
-
-        .brand span {
-            color: #ef3347;
-            text-shadow:
-                0 0 30px rgba(239, 51, 71, .22);
-        }
-
-        .subtitle {
-            max-width: 590px;
-            color: #aeb5c2;
-            font-size: clamp(16px, 2vw, 19px);
-            line-height: 2;
-            margin-bottom: 30px;
-        }
-
-        .highlight {
-            color: #fff;
-            font-weight: 800;
-        }
-
-        /* =========================================================
-           FEATURES
-        ========================================================= */
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 11px;
-            max-width: 620px;
-            margin-top: 25px;
-        }
-
-        .feature {
-            min-height: 105px;
-            padding: 15px 10px;
-            border-radius: 20px;
-            text-align: center;
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.065),
-                    rgba(255,255,255,.018)
-                );
-
-            border: 1px solid rgba(255,255,255,.075);
-
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-
-            transition:
-                transform .25s ease,
-                border-color .25s ease,
-                background .25s ease;
-        }
-
-        .feature:hover {
-            transform: translateY(-5px);
-            border-color: rgba(239,51,71,.30);
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(239,51,71,.10),
-                    rgba(255,255,255,.025)
-                );
-        }
-
-        .feature-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 14px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            margin-bottom: 8px;
-
-            font-size: 21px;
-
-            background: rgba(255,255,255,.055);
-        }
-
-        .feature-text {
-            color: #b8bec9;
-            font-size: 11px;
-            font-weight: 700;
-        }
-
-        /* =========================================================
-           DOWNLOAD PANEL
-        ========================================================= */
-
-        .download-area {
-            display: flex;
-            justify-content: center;
-            animation: fadeUp .8s .12s ease both;
-        }
-
-        .download-card {
-            width: min(100%, 440px);
-            padding: 28px;
-            border-radius: 34px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.09),
-                    rgba(255,255,255,.025)
-                );
-
-            border: 1px solid rgba(255,255,255,.10);
-
-            box-shadow:
-                0 35px 100px rgba(0,0,0,.45),
-                inset 0 1px 0 rgba(255,255,255,.06);
-
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-
-            position: relative;
-            overflow: hidden;
-        }
-
-        .download-card::before {
-            content: "";
-            position: absolute;
-            width: 220px;
-            height: 220px;
-            top: -130px;
-            left: -100px;
-            border-radius: 50%;
-            background: rgba(239,51,71,.14);
-            filter: blur(50px);
-        }
-
-        /* =========================================================
-           LOGO
-        ========================================================= */
-
-        .logo-area {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 22px;
-        }
-
-        .logo-wrapper {
-            width: 145px;
-            height: 145px;
-            padding: 12px;
-
-            border-radius: 38px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.12),
-                    rgba(255,255,255,.025)
-                );
-
-            border: 1px solid rgba(255,255,255,.13);
-
-            box-shadow:
-                0 25px 65px rgba(0,0,0,.45),
-                0 0 50px rgba(239,51,71,.10);
-
-            position: relative;
-        }
-
-        .logo-wrapper::after {
-            content: "";
-            position: absolute;
-            inset: -1px;
-            border-radius: inherit;
-            border: 1px solid rgba(239,51,71,.13);
-            pointer-events: none;
-        }
-
-        .logo {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 28px;
-        }
-
-        /* =========================================================
-           CARD TEXT
-        ========================================================= */
-
-        .card-title {
-            position: relative;
-            text-align: center;
-            font-size: 25px;
-            font-weight: 900;
-            margin-bottom: 8px;
-        }
-
-        .card-text {
-            position: relative;
-            text-align: center;
-            color: #929aa8;
-            font-size: 13px;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        /* =========================================================
-           DOWNLOAD BUTTON
-        ========================================================= */
-
-        .store-button {
-            min-height: 78px;
-            width: 100%;
-
-            display: flex;
-            align-items: center;
-            gap: 15px;
-
-            padding: 12px 15px;
-
-            border-radius: 21px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(239,51,71,.20),
-                    rgba(239,51,71,.055)
-                );
-
-            border: 1px solid rgba(239,51,71,.42);
-
-            box-shadow:
-                0 15px 45px rgba(239,51,71,.11);
-
-            transition:
-                transform .2s ease,
-                box-shadow .2s ease,
-                border-color .2s ease;
-        }
-
-        .store-button:hover {
-            transform: translateY(-4px);
-            border-color: rgba(239,51,71,.70);
-            box-shadow:
-                0 20px 55px rgba(239,51,71,.19);
-        }
-
-        .store-button:active {
-            transform: scale(.98);
-        }
-
-        .store-icon {
-            width: 50px;
-            height: 50px;
-            flex: 0 0 50px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 16px;
-
-            background: #171a21;
-            color: #65d36e;
-
-            font-size: 22px;
-
-            box-shadow:
-                inset 0 1px 0 rgba(255,255,255,.06);
-        }
-
-        .store-info {
-            flex: 1;
-            text-align: right;
-        }
-
-        .store-small {
-            display: block;
-            color: #999fac;
-            font-size: 11px;
-            margin-bottom: 4px;
-        }
-
-        .store-name {
-            display: block;
-            font-size: 17px;
-            font-weight: 900;
-        }
-
-        .arrow {
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            color: #ff6374;
-            background: rgba(239,51,71,.08);
-
-            font-size: 20px;
-        }
-
-        .recommended-label {
-            width: fit-content;
-            margin: 14px auto 0;
-            padding: 7px 13px;
-
-            border-radius: 999px;
-
-            color: #ff7180;
-            background: rgba(239,51,71,.07);
-            border: 1px solid rgba(239,51,71,.14);
-
-            font-size: 11px;
-            font-weight: 800;
-        }
-
-        /* =========================================================
-           INFO
-        ========================================================= */
-
-        .security {
-            display: flex;
-            justify-content: center;
-            gap: 9px;
-            align-items: center;
-
-            margin-top: 18px;
-
-            color: #747c89;
-            font-size: 10px;
-            text-align: center;
-        }
-
-        .security-icon {
-            color: #65d36e;
-            font-size: 13px;
-        }
-
-        .info {
-            margin-top: 25px;
-            text-align: center;
-        }
-
-        .info p {
-            color: #747b88;
-            font-size: 11px;
-            line-height: 1.8;
-        }
-
-        .footer {
-            margin-top: 12px;
-            color: #4e5663;
-            font-size: 10px;
-            text-align: center;
-        }
-
-        /* =========================================================
-           ANIMATION
-        ========================================================= */
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(25px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* =========================================================
-           TABLET
-        ========================================================= */
-
-        @media (max-width: 900px) {
-
-            .hero {
-                grid-template-columns: 1fr;
-                gap: 35px;
-                padding: 45px 0;
-            }
-
-            .content {
-                text-align: center;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .subtitle {
-                max-width: 650px;
-            }
-
-            .features {
-                width: 100%;
-                max-width: 600px;
-            }
-
-            .download-area {
-                width: 100%;
-            }
-        }
-
-        /* =========================================================
-           MOBILE
-        ========================================================= */
-
-        @media (max-width: 600px) {
-
-            .container {
-                width: min(100% - 22px, 520px);
-            }
-
-            .hero {
-                min-height: auto;
-                padding: 28px 0 25px;
-                gap: 27px;
-            }
-
-            .brand {
-                font-size: clamp(39px, 12vw, 58px);
-                letter-spacing: -2px;
-            }
-
-            .subtitle {
-                font-size: 14px;
-                line-height: 1.9;
-                margin-bottom: 5px;
-            }
-
-            .download-card {
-                padding: 21px 15px 18px;
-                border-radius: 27px;
-            }
-
-            .logo-wrapper {
-                width: 112px;
-                height: 112px;
-                border-radius: 30px;
-                padding: 10px;
-            }
-
-            .logo {
-                border-radius: 22px;
-            }
-
-            .card-title {
-                font-size: 21px;
-            }
-
-            .card-text {
-                font-size: 12px;
-            }
-
-            .store-button {
-                min-height: 70px;
-                border-radius: 18px;
-            }
-
-            .store-icon {
-                width: 44px;
-                height: 44px;
-                flex-basis: 44px;
-                border-radius: 13px;
-            }
-
-            .store-name {
-                font-size: 15px;
-            }
-
-            .features {
-                gap: 7px;
-            }
-
-            .feature {
-                min-height: 88px;
-                border-radius: 16px;
-            }
-
-            .feature-icon {
-                width: 35px;
-                height: 35px;
-                border-radius: 11px;
-                font-size: 18px;
-            }
-
-            .feature-text {
-                font-size: 9px;
-            }
-        }
-
-        /* =========================================================
-           VERY SMALL PHONES
-        ========================================================= */
-
-        @media (max-width: 360px) {
-
-            .container {
-                width: calc(100% - 16px);
-            }
-
-            .hero {
-                padding-top: 22px;
-            }
-
-            .badge {
-                font-size: 11px;
-            }
-
-            .brand {
-                font-size: 36px;
-            }
-
-            .subtitle {
-                font-size: 13px;
-            }
-
-            .download-card {
-                padding: 18px 12px 15px;
-            }
-
-            .features {
-                gap: 5px;
-            }
-
-            .feature {
-                min-height: 80px;
-            }
-        }
-
-        /* =========================================================
-           LANDSCAPE MOBILE
-        ========================================================= */
-
-        @media (max-height: 600px) and (orientation: landscape) {
-
-            .hero {
-                min-height: auto;
-                padding: 25px 0;
-            }
-
-            .logo-wrapper {
-                width: 90px;
-                height: 90px;
-            }
-
-            .brand {
-                font-size: 38px;
-            }
-        }
-
-        /* =========================================================
-           REDUCED MOTION
-        ========================================================= */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            *,
-            *::before,
-            *::after {
-                animation: none !important;
-                transition: none !important;
-                scroll-behavior: auto !important;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>عامل دليفري | أقرب لك وأسرع في خدمتك</title>
+
+<meta name="description"
+content="عامل دليفري منصة تساعدك على الوصول إلى أصحاب المهن والخدمات بسهولة وسرعة.">
+
+<meta name="theme-color" content="#ff7900">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+    Tahoma,
+    Arial,
+    sans-serif;
+
+    background:#f7f8fa;
+    color:#172231;
+    line-height:1.8;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+}
+
+.container{
+    width:92%;
+    max-width:1150px;
+    margin:auto;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    background:rgba(255,255,255,.95);
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid #eee;
+}
+
+.navbar-inner{
+    min-height:72px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:15px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    font-weight:900;
+    font-size:19px;
+}
+
+.logo img{
+    width:52px;
+    height:52px;
+    object-fit:contain;
+}
+
+.nav-buttons{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.nav-buttons a{
+    padding:10px 15px;
+    border-radius:12px;
+    font-weight:800;
+}
+
+.login{
+    background:#f1f3f5;
+}
+
+.request{
+    background:#ff7900;
+    color:#fff;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ffffff,
+        #fff3e5
+    );
+
+    padding:65px 0 75px;
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    background:#ff7900;
+
+    opacity:.06;
+
+    border-radius:50%;
+
+    left:-130px;
+    top:30px;
+}
+
+.hero::after{
+    content:"";
+
+    position:absolute;
+
+    width:280px;
+    height:280px;
+
+    background:#ff7900;
+
+    opacity:.05;
+
+    border-radius:50%;
+
+    right:-100px;
+    bottom:-80px;
+}
+
+.hero-grid{
+    position:relative;
+    z-index:2;
+
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+
+    align-items:center;
+
+    gap:45px;
+}
+
+.badge{
+    display:inline-block;
+
+    background:#fff0df;
+    color:#dc6500;
+
+    border:1px solid #ffd5ac;
+
+    border-radius:50px;
+
+    padding:7px 15px;
+
+    font-weight:900;
+
+    margin-bottom:15px;
+}
+
+.hero h1{
+    font-size:clamp(40px,6vw,68px);
+
+    line-height:1.1;
+
+    color:#07111d;
+
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#ff7900;
+}
+
+.hero-text{
+    font-size:19px;
+    color:#687586;
+
+    max-width:680px;
+
+    margin-bottom:25px;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+
+    gap:10px;
+}
+
+.btn{
+    border:0;
+
+    padding:14px 21px;
+
+    border-radius:15px;
+
+    font-weight:900;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:8px;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn-main{
+    background:#ff7900;
+    color:white;
+
+    box-shadow:
+    0 10px 25px rgba(255,121,0,.25);
+}
+
+.btn-dark{
+    background:#07111d;
+    color:white;
+}
+
+.btn-light{
+    background:white;
+
+    border:1px solid #ddd;
+}
+
+.hero-logo{
+    display:flex;
+    justify-content:center;
+}
+
+.hero-logo img{
+    width:min(430px,100%);
+
+    filter:
+    drop-shadow(
+        0 25px 30px
+        rgba(0,0,0,.15)
+    );
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+    padding:75px 0;
+}
+
+.section-title{
+    text-align:center;
+
+    max-width:760px;
+
+    margin:
+    0 auto 40px;
+}
+
+.section-title small{
+    color:#ff7900;
+    font-weight:900;
+    font-size:16px;
+}
+
+.section-title h2{
+    color:#07111d;
+
+    font-size:
+    clamp(29px,4vw,44px);
+
+    margin:5px 0 10px;
+}
+
+.section-title p{
+    color:#687586;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about{
+    background:white;
+}
+
+.about-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:18px;
+}
+
+.info-card{
+    background:#fff;
+
+    border:1px solid #e8ecf0;
+
+    border-radius:23px;
+
+    padding:25px;
+
+    box-shadow:
+    0 10px 30px rgba(7,17,29,.05);
+
+    transition:.2s;
+}
+
+.info-card:hover{
+    transform:translateY(-5px);
+}
+
+.icon{
+    width:60px;
+    height:60px;
+
+    display:grid;
+    place-items:center;
+
+    background:#fff0df;
+
+    border-radius:17px;
+
+    font-size:29px;
+
+    margin-bottom:15px;
+}
+
+.info-card h3{
+    margin-bottom:8px;
+
+    color:#07111d;
+}
+
+.info-card p{
+    color:#687586;
+}
+
+/* =========================
+   HOW IT WORKS
+========================= */
+
+.how{
+    background:#07111d;
+    color:white;
+}
+
+.how .section-title h2{
+    color:white;
+}
+
+.how .section-title p{
+    color:#b8c4cf;
+}
+
+.steps{
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:15px;
+}
+
+.step{
+    background:#102235;
+
+    border:1px solid #1d3449;
+
+    border-radius:22px;
+
+    padding:24px;
+}
+
+.step-number{
+    width:45px;
+    height:45px;
+
+    display:grid;
+    place-items:center;
+
+    background:#ff7900;
+
+    color:white;
+
+    border-radius:50%;
+
+    font-weight:900;
+
+    font-size:18px;
+
+    margin-bottom:15px;
+}
+
+.step h3{
+    margin-bottom:7px;
+}
+
+.step p{
+    color:#b7c3ce;
+}
+
+/* =========================
+   CUSTOMER GUIDE
+========================= */
+
+.guide-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:20px;
+}
+
+.guide{
+    background:white;
+
+    border:1px solid #e8ecf0;
+
+    border-radius:25px;
+
+    padding:28px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.04);
+}
+
+.guide-number{
+    display:inline-grid;
+
+    place-items:center;
+
+    width:50px;
+    height:50px;
+
+    border-radius:15px;
+
+    background:#fff0df;
+
+    color:#ff7900;
+
+    font-size:23px;
+
+    margin-bottom:12px;
+}
+
+.guide h3{
+    margin-bottom:10px;
+}
+
+.guide p{
+    color:#687586;
+}
+
+.guide ul{
+    margin-top:15px;
+
+    padding-right:20px;
+
+    color:#687586;
+}
+
+.guide li{
+    margin-bottom:8px;
+}
+
+/* =========================
+   PROFESSIONS
+========================= */
+
+.professions{
+    background:#fff7ef;
+}
+
+.profession-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(5,1fr);
+
+    gap:14px;
+}
+
+.profession{
+    background:white;
+
+    border-radius:20px;
+
+    padding:20px;
+
+    text-align:center;
+
+    border:1px solid #ffe2c4;
+
+    transition:.2s;
+}
+
+.profession:hover{
+    transform:translateY(-4px);
+}
+
+.profession-icon{
+    font-size:38px;
+
+    margin-bottom:7px;
+}
+
+.profession strong{
+    display:block;
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.status-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:15px;
+}
+
+.status{
+    background:white;
+
+    border:1px solid #e8ecf0;
+
+    border-radius:20px;
+
+    padding:22px;
+}
+
+.status-icon{
+    font-size:35px;
+
+    margin-bottom:8px;
+}
+
+.status h3{
+    margin-bottom:5px;
+}
+
+.status p{
+    color:#687586;
+}
+
+/* =========================
+   APP SECTION
+========================= */
+
+.app-section{
+    background:
+    linear-gradient(
+        135deg,
+        #fff2e3,
+        #ffffff
+    );
+}
+
+.app-box{
+    border:1px solid #ffd5aa;
+
+    border-radius:30px;
+
+    padding:40px;
+
+    display:grid;
+
+    grid-template-columns:
+    1fr auto;
+
+    align-items:center;
+
+    gap:30px;
+}
+
+.app-box h2{
+    font-size:35px;
+
+    color:#07111d;
+
+    margin-bottom:8px;
+}
+
+.app-box p{
+    color:#687586;
+
+    margin-bottom:18px;
+}
+
+.app-buttons{
+    display:flex;
+    flex-wrap:wrap;
+
+    gap:10px;
+}
+
+/* =========================
+   FAQ
+========================= */
+
+.faq{
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:14px;
+}
+
+details{
+    background:white;
+
+    border:1px solid #e7ebef;
+
+    border-radius:17px;
+
+    padding:17px;
+}
+
+summary{
+    cursor:pointer;
+
+    font-weight:900;
+}
+
+details p{
+    color:#687586;
+
+    margin-top:10px;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+    background:#07111d;
+
+    color:white;
+
+    text-align:center;
+}
+
+.cta h2{
+    font-size:clamp(30px,5vw,48px);
+
+    margin-bottom:10px;
+}
+
+.cta p{
+    color:#bac5cf;
+
+    max-width:700px;
+
+    margin:0 auto 25px;
+}
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.whatsapp{
+    position:fixed;
+
+    bottom:20px;
+    left:20px;
+
+    width:58px;
+    height:58px;
+
+    background:#25d366;
+
+    color:white;
+
+    border-radius:50%;
+
+    display:grid;
+
+    place-items:center;
+
+    font-size:28px;
+
+    z-index:999;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,.2);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#050d15;
+
+    color:#c3ced8;
+
+    padding:40px 0 20px;
+}
+
+.footer-grid{
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:30px;
+
+    flex-wrap:wrap;
+}
+
+footer strong{
+    color:white;
+}
+
+footer a{
+    margin-left:15px;
+}
+
+.copyright{
+    text-align:center;
+
+    margin-top:25px;
+
+    color:#788796;
+
+    font-size:13px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+    .hero-grid{
+        grid-template-columns:1fr;
+
+        text-align:center;
+    }
+
+    .hero-text{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .hero-logo{
+        order:-1;
+    }
+
+    .hero-logo img{
+        max-width:330px;
+    }
+
+    .about-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .steps{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .profession-grid{
+        grid-template-columns:
+        repeat(3,1fr);
+    }
+
+    .status-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .app-box{
+        grid-template-columns:1fr;
+
+        text-align:center;
+    }
+
+    .app-buttons{
+        justify-content:center;
+    }
+}
+
+@media(max-width:600px){
+
+    .navbar-inner{
+        min-height:64px;
+    }
+
+    .logo img{
+        width:43px;
+        height:43px;
+    }
+
+    .logo span{
+        font-size:16px;
+    }
+
+    .nav-buttons .login{
+        display:none;
+    }
+
+    .nav-buttons a{
+        padding:9px 11px;
+        font-size:12px;
+    }
+
+    .hero{
+        padding:40px 0 55px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    section{
+        padding:55px 0;
+    }
+
+    .about-grid,
+    .guide-grid,
+    .steps,
+    .faq,
+    .status-grid{
+        grid-template-columns:1fr;
+    }
+
+    .profession-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .app-box{
+        padding:27px 20px;
+    }
+
+    .app-box h2{
+        font-size:28px;
+    }
+
+    .whatsapp{
+        width:52px;
+        height:52px;
+
+        bottom:15px;
+        left:15px;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
-<div class="page">
+<!-- =========================
+     NAVBAR
+========================= -->
 
-    <div class="glow one"></div>
-    <div class="glow two"></div>
+<header class="navbar">
 
-    <main class="container">
+<div class="container navbar-inner">
 
-        <section class="hero">
+<a href="index.html" class="logo">
 
-            <!-- ================================================
-                 النص الرئيسي
-            ================================================= -->
+<img src="logo.png" alt="شعار عامل دليفري">
 
-            <div class="content">
+<span>
+عامل دليفري
+</span>
 
-                <div class="badge">
-                    <span class="badge-dot"></span>
-                    منصة الخدمات والعمال
-                </div>
+</a>
 
-                <h1 class="brand">
-                    عامل <span>دليفري</span>
-                </h1>
+<div class="nav-buttons">
 
-                <p class="subtitle">
-                    وصّل خدمتك إلى العامل المناسب بسهولة.
-                    <span class="highlight">
-                        كهربائي، سباك، دهان، بناء، ميكانيكي
-                    </span>
-                    وغيرها من أصحاب المهن والخدمات.
-                </p>
+<a href="login.php" class="login">
+🔐 تسجيل الدخول
+</a>
 
-                <div class="features">
+<a href="customer.php" class="request">
+🚀 اطلب عامل الآن
+</a>
 
-                    <div class="feature">
-                        <div class="feature-icon">⚡</div>
-                        <div class="feature-text">
-                            وصول سريع
-                        </div>
-                    </div>
+</div>
 
-                    <div class="feature">
-                        <div class="feature-icon">👷</div>
-                        <div class="feature-text">
-                            أصحاب مهن
-                        </div>
-                    </div>
+</div>
 
-                    <div class="feature">
-                        <div class="feature-icon">📱</div>
-                        <div class="feature-text">
-                            استخدام سهل
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
+</header>
 
 
-            <!-- ================================================
-                 بطاقة التحميل
-            ================================================= -->
+<!-- =========================
+     HERO
+========================= -->
 
-            <div class="download-area">
+<section class="hero">
 
-                <div class="download-card">
+<div class="container hero-grid">
 
-                    <div class="logo-area">
+<div>
 
-                        <div class="logo-wrapper">
+<div class="badge">
+🛠️ منصة عامل دليفري
+</div>
 
-                            <img
-                                src="logo.png"
-                                alt="شعار عامل دليفري"
-                                class="logo"
-                                onerror="
-                                    this.style.display='none';
-                                    this.parentElement.innerHTML=
-                                    '<strong style=&quot;font-size:48px;color:#ef3347&quot;>ع</strong>';
-                                "
-                            >
+<h1>
 
-                        </div>
+أقرب لك
+<br>
 
-                    </div>
+<span>
+وأسرع في خدمتك
+</span>
 
-                    <h2 class="card-title">
-                        حمّل تطبيق عامل دليفري
-                    </h2>
+</h1>
 
-                    <p class="card-text">
-                        التطبيق متوفر الآن لهواتف Android
-                    </p>
+<p class="hero-text">
 
+عامل دليفري هي منصة تهدف إلى تقريب أصحاب المهن والخدمات
+من الأشخاص الذين يحتاجون إلى خدماتهم بطريقة سهلة ومنظمة.
+بدلاً من البحث الطويل، يمكنك الوصول إلى الخدمة التي تحتاجها
+من خلال خطوات بسيطة من هاتفك.
 
-                    <!-- زر APK -->
+</p>
 
-                    <a
-                        id="androidButton"
-                        class="store-button"
-                        href="تطبيق عامل دليفري.apk"
-                        download="عامل-دليفري.apk"
-                        aria-label="تحميل تطبيق عامل دليفري APK"
-                    >
+<div class="hero-buttons">
 
-                        <div class="store-icon">
-                            ▶
-                        </div>
+<a href="customer.php" class="btn btn-main">
+🚀 اطلب عامل الآن
+</a>
 
-                        <div class="store-info">
+<a href="login.php" class="btn btn-dark">
+🔐 تسجيل الدخول
+</a>
 
-                            <span class="store-small">
-                                تحميل مباشر
-                            </span>
+<a href="#how" class="btn btn-light">
+📖 كيف تعمل المنصة؟
+</a>
 
-                            <span class="store-name">
-                                تطبيق عامل دليفري APK
-                            </span>
-
-                        </div>
-
-                        <div class="arrow">
-                            ↓
-                        </div>
-
-                    </a>
-
-
-                    <div
-                        id="recommendedLabel"
-                        class="recommended-label"
-                    >
-                        📱 مناسب لهواتف Android
-                    </div>
-
-
-                    <div class="security">
-
-                        <span class="security-icon">
-                            ✓
-                        </span>
-
-                        <span>
-                            تحميل مباشر من موقع عامل دليفري
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <div class="info">
-
-            <p>
-                عامل دليفري — الوصول إلى الخدمة التي تحتاجها أصبح أسهل.
-            </p>
-
-            <div class="footer">
-                © <span id="year"></span>
-                عامل دليفري — جميع الحقوق محفوظة
-            </div>
-
-        </div>
-
-    </main>
+</div>
 
 </div>
 
 
-<script>
+<div class="hero-logo">
 
-    /* =========================================================
-       ملف APK
-    ========================================================= */
+<img src="logo.png" alt="عامل دليفري">
 
-    const APK_URL = "تطبيق عامل دليفري.apk";
+</div>
 
-    const androidButton =
-        document.getElementById("androidButton");
+</div>
 
-    const recommendedLabel =
-        document.getElementById("recommendedLabel");
+</section>
 
 
-    /* ربط زر التحميل */
+<!-- =========================
+     ABOUT
+========================= -->
 
-    androidButton.href = APK_URL;
+<section class="about">
 
+<div class="container">
 
-    /* السنة */
+<div class="section-title">
 
-    document.getElementById("year").textContent =
-        new Date().getFullYear();
+<small>عن المشروع</small>
 
+<h2>
+ما هي منصة عامل دليفري؟
+</h2>
 
-    /* =========================================================
-       اكتشاف الجهاز
-    ========================================================= */
+<p>
+منصة إلكترونية تساعد الزائر على الوصول إلى أصحاب المهن
+والخدمات المتاحة بطريقة أبسط وأكثر تنظيماً.
+</p>
 
-    const userAgent =
-        navigator.userAgent ||
-        navigator.vendor ||
-        window.opera;
-
-    const isAndroid =
-        /android/i.test(userAgent);
-
-    const isIOS =
-        /iPad|iPhone|iPod/i.test(userAgent);
+</div>
 
 
-    if (isAndroid) {
-
-        recommendedLabel.textContent =
-            "✓ مناسب لجهاز Android";
-
-    } else if (isIOS) {
-
-        recommendedLabel.textContent =
-            "📱 ملف APK مخصص لأجهزة Android";
-
-    } else {
-
-        recommendedLabel.textContent =
-            "📱 تحميل التطبيق لأجهزة Android";
-
-    }
+<div class="about-grid">
 
 
-    /* =========================================================
-       رسالة بسيطة عند الضغط
-    ========================================================= */
+<div class="info-card">
 
-    androidButton.addEventListener("click", function () {
+<div class="icon">
+🤝
+</div>
 
-        console.log(
-            "جاري تحميل تطبيق عامل دليفري..."
-        );
+<h3>
+تقريب العامل من العميل
+</h3>
 
-    });
+<p>
+الفكرة الأساسية للمنصة هي تسهيل الوصول إلى العامل المناسب
+عندما يحتاج العميل إلى خدمة معينة.
+</p>
 
-</script>
+</div>
+
+
+<div class="info-card">
+
+<div class="icon">
+📱
+</div>
+
+<h3>
+استخدام سهل من الهاتف
+</h3>
+
+<p>
+تم تصميم المنصة لتعمل على الهاتف والكمبيوتر،
+مع واجهة بسيطة وواضحة للزوار والعملاء.
+</p>
+
+</div>
+
+
+<div class="info-card">
+
+<div class="icon">
+⚡
+</div>
+
+<h3>
+طلب الخدمة بسهولة
+</h3>
+
+<p>
+يستطيع العميل اختيار المهنة وإرسال طلبه ومتابعة
+حالة الطلب من خلال حسابه.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     HOW IT WORKS
+========================= -->
+
+<section class="how" id="how">
+
+<div class="container">
+
+<div class="section-title">
+
+<small>
+طريقة عمل المنصة
+</small>
+
+<h2>
+كيف تعمل عامل دليفري؟
+</h2>
+
+<p>
+تمر عملية طلب الخدمة بعدة خطوات بسيطة.
+</p>
+
+</div>
+
+
+<div class="steps">
+
+
+<div class="step">
+
+<div class="step-number">
+1
+</div>
+
+<h3>
+الدخول إلى المنصة
+</h3>
+
+<p>
+يدخل الزائر إلى الموقع ثم يختار الخدمة التي يحتاج إليها.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+2
+</div>
+
+<h3>
+اختيار المهنة
+</h3>
+
+<p>
+يختار العميل نوع العامل المطلوب مثل كهربائي أو سباك أو غيره.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+3
+</div>
+
+<h3>
+إرسال الطلب
+</h3>
+
+<p>
+يتم إرسال طلب الخدمة إلى العامل المناسب والمتاح.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+4
+</div>
+
+<h3>
+قبول الطلب
+</h3>
+
+<p>
+عند قبول العامل للطلب يستطيع العميل التواصل معه وإتمام الخدمة.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     CUSTOMER GUIDE
+========================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+<small>
+إرشادات العميل
+</small>
+
+<h2>
+طريقة استعمال المنصة للزائر
+</h2>
+
+<p>
+إذا كنت تستخدم عامل دليفري لأول مرة، اتبع هذه الخطوات.
+</p>
+
+</div>
+
+
+<div class="guide-grid">
+
+
+<div class="guide">
+
+<div class="guide-number">
+1
+</div>
+
+<h3>
+إنشاء حساب عميل
+</h3>
+
+<p>
+اضغط على تسجيل الدخول، ثم أنشئ حسابك كعميل باستخدام
+البيانات المطلوبة في المنصة.
+</p>
+
+<ul>
+
+<li>
+استخدم بيانات صحيحة.
+</li>
+
+<li>
+احتفظ بكلمة المرور.
+</li>
+
+<li>
+يمكنك الدخول إلى حسابك لاحقاً لمتابعة طلباتك.
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="guide">
+
+<div class="guide-number">
+2
+</div>
+
+<h3>
+اختيار العامل
+</h3>
+
+<p>
+بعد الدخول إلى منصة العملاء ستظهر لك المهن والخدمات المتاحة.
+</p>
+
+<ul>
+
+<li>
+اختر المهنة المطلوبة.
+</li>
+
+<li>
+راجع العامل المتاح.
+</li>
+
+<li>
+اضغط على زر طلب العامل.
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="guide">
+
+<div class="guide-number">
+3
+</div>
+
+<h3>
+متابعة الطلب
+</h3>
+
+<p>
+بعد إرسال الطلب تستطيع متابعة حالته من صفحة طلباتك.
+</p>
+
+<ul>
+
+<li>
+قيد الانتظار.
+</li>
+
+<li>
+تم قبول الطلب.
+</li>
+
+<li>
+تم إكمال الخدمة أو إلغاء الطلب.
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="guide">
+
+<div class="guide-number">
+4
+</div>
+
+<h3>
+التواصل مع العامل
+</h3>
+
+<p>
+عند قبول العامل للطلب تظهر وسيلة التواصل حسب نظام المنصة.
+</p>
+
+<ul>
+
+<li>
+نسّق معه تفاصيل الخدمة.
+</li>
+
+<li>
+اتفق على مكان الخدمة.
+</li>
+
+<li>
+بعد انتهاء الخدمة يتم تحديث حالة الطلب.
+</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     PROFESSIONS
+========================= -->
+
+<section class="professions">
+
+<div class="container">
+
+<div class="section-title">
+
+<small>
+الخدمات
+</small>
+
+<h2>
+أصحاب المهن والخدمات
+</h2>
+
+<p>
+يمكن للمنصة عرض مجموعة مختلفة من أصحاب المهن حسب الخدمات
+المتوفرة في المدينة.
+</p>
+
+</div>
+
+
+<div class="profession-grid">
+
+
+<div class="profession">
+<div class="profession-icon">⚡</div>
+<strong>كهربائي</strong>
+</div>
+
+
+<div class="profession">
+<div class="profession-icon">🚰</div>
+<strong>سباك</strong>
+</div>
+
+
+<div class="profession">
+<div class="profession-icon">🎨</div>
+<strong>دهان</strong>
+</div>
+
+
+<div class="profession">
+<div class="profession-icon">🧱</div>
+<strong>بناء</strong>
+</div>
+
+
+<div class="profession">
+<div class="profession-icon">🔧</div>
+<strong>ميكانيكي</strong>
+</div>
+
+
+<div class="profession">
+<div class="profession-icon">🪚</div>
+<strong>نجار</strong>
+</div>
+
+
+<div class="profession">
+<div class="profession-icon">❄️</div>
+<strong>تكييف وتبريد</strong>
+</div>
+
+
+<div class="profession">
+<div class="profession-icon">🧹</div>
+<strong>خدمات منزلية</strong>
+</div>
+
+
+<div class="profession">
+<div class="profession-icon">🔩</div>
+<strong>صيانة</strong>
+</div>
+
+
+<div class="profession">
+<div class="profession-icon">➕</div>
+<strong>خدمات أخرى</strong>
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     REQUEST STATUS
+========================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+<small>
+متابعة الطلب
+</small>
+
+<h2>
+ماذا يحدث بعد إرسال الطلب؟
+</h2>
+
+<p>
+يمكن للعميل معرفة المرحلة التي وصل إليها طلبه.
+</p>
+
+</div>
+
+
+<div class="status-grid">
+
+
+<div class="status">
+
+<div class="status-icon">
+⏳
+</div>
+
+<h3>
+قيد الانتظار
+</h3>
+
+<p>
+تم إرسال الطلب وينتظر رد العامل.
+</p>
+
+</div>
+
+
+<div class="status">
+
+<div class="status-icon">
+✅
+</div>
+
+<h3>
+تم القبول
+</h3>
+
+<p>
+قام العامل بقبول الطلب ويمكن بدء التواصل معه.
+</p>
+
+</div>
+
+
+<div class="status">
+
+<div class="status-icon">
+🏁
+</div>
+
+<h3>
+تم الإنجاز
+</h3>
+
+<p>
+تم الانتهاء من الخدمة وإغلاق الطلب.
+</p>
+
+</div>
+
+
+<div class="status">
+
+<div class="status-icon">
+❌
+</div>
+
+<h3>
+ملغي
+</h3>
+
+<p>
+تم إلغاء الطلب ولن يبقى ضمن الطلبات النشطة.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     WORKER GUIDE
+========================= -->
+
+<section class="about">
+
+<div class="container">
+
+<div class="section-title">
+
+<small>
+إرشادات العامل
+</small>
+
+<h2>
+كيف يعمل العامل داخل المنصة؟
+</h2>
+
+<p>
+العامل يتعامل مع الطلبات الموجهة إليه من خلال حسابه.
+</p>
+
+</div>
+
+
+<div class="about-grid">
+
+
+<div class="info-card">
+
+<div class="icon">
+👷
+</div>
+
+<h3>
+استقبال الطلب
+</h3>
+
+<p>
+عندما يرسل العميل طلباً مناسباً للعامل، يظهر الطلب في حساب العامل.
+</p>
+
+</div>
+
+
+<div class="info-card">
+
+<div class="icon">
+✅
+</div>
+
+<h3>
+قبول أو رفض
+</h3>
+
+<p>
+يمكن للعامل مراجعة الطلب ثم قبوله إذا كان يستطيع تنفيذ الخدمة،
+أو رفضه عند عدم توفره.
+</p>
+
+</div>
+
+
+<div class="info-card">
+
+<div class="icon">
+📞
+</div>
+
+<h3>
+التواصل مع العميل
+</h3>
+
+<p>
+بعد قبول الطلب تصبح معلومات التواصل متاحة حسب قواعد المنصة
+لإتمام تنسيق الخدمة.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     APP
+========================= -->
+
+<section class="app-section">
+
+<div class="container">
+
+<div class="app-box">
+
+<div>
+
+<h2>
+📱 عامل دليفري على هاتفك
+</h2>
+
+<p>
+يمكن استخدام الموقع من الهاتف مباشرة، كما يمكن تثبيته على شاشة
+الهاتف عندما يدعم المتصفح خاصية تثبيت تطبيقات الويب.
+</p>
+
+<div class="app-buttons">
+
+<a href="customer.php" class="btn btn-main">
+🚀 فتح المنصة
+</a>
+
+<a href="#how" class="btn btn-light">
+📖 طريقة الاستخدام
+</a>
+
+</div>
+
+</div>
+
+
+<div style="font-size:90px">
+📲
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FAQ
+========================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+<small>
+الأسئلة الشائعة
+</small>
+
+<h2>
+أسئلة قد تهمك
+</h2>
+
+</div>
+
+
+<div class="faq">
+
+
+<details>
+
+<summary>
+ما هي فكرة عامل دليفري؟
+</summary>
+
+<p>
+هي منصة إلكترونية تهدف إلى تسهيل وصول العملاء إلى أصحاب المهن
+والخدمات المتاحة في المنصة.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+كيف أطلب عاملاً؟
+</summary>
+
+<p>
+ادخل إلى منصة العملاء، اختر المهنة والعامل المناسب، ثم أرسل طلب الخدمة.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+متى أستطيع التواصل مع العامل؟
+</summary>
+
+<p>
+بحسب نظام المنصة، تظهر معلومات التواصل بعد قبول العامل للطلب.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+هل أحتاج إلى حساب؟
+</summary>
+
+<p>
+لاستخدام خدمات العملاء وطلبات الخدمة تحتاج إلى الدخول إلى حساب العميل.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+هل العامل يستطيع استقبال أكثر من طلب؟
+</summary>
+
+<p>
+نظام المنصة يمكنه تنظيم حالة العامل بحيث لا يتم إرسال طلبات جديدة
+إليه عندما يكون لديه طلب نشط.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+هل يمكن إلغاء الطلب؟
+</summary>
+
+<p>
+يمكن إلغاء الطلب وفق الحالة والقواعد الموجودة في نظام المنصة.
+</p>
+
+</details>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta">
+
+<div class="container">
+
+<h2>
+تحتاج إلى عامل؟
+</h2>
+
+<p>
+لا تضيع وقتك في البحث.
+ادخل إلى المنصة واختر الخدمة التي تحتاجها.
+</p>
+
+<div class="hero-buttons" style="justify-content:center">
+
+<a href="customer.php" class="btn btn-main">
+🚀 اطلب عامل الآن
+</a>
+
+<a href="login.php" class="btn btn-light">
+🔐 تسجيل الدخول
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     WHATSAPP
+========================= -->
+
+<!--
+غيّر الرقم التالي إلى رقم واتساب المنصة.
+مثال ليبيا:
+2189XXXXXXXX
+-->
+
+<a
+class="whatsapp"
+href="https://wa.me/218000000000"
+target="_blank"
+title="تواصل معنا عبر واتساب">
+
+💬
+
+</a>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+
+<strong>
+عامل دليفري
+</strong>
+
+<p>
+أقرب لك وأسرع في خدمتك.
+</p>
+
+</div>
+
+
+<div>
+
+<strong>
+روابط سريعة
+</strong>
+
+<p>
+
+<a href="customer.php">
+اطلب عامل
+</a>
+
+<a href="login.php">
+تسجيل الدخول
+</a>
+
+<a href="#how">
+طريقة الاستخدام
+</a>
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 عامل دليفري — جميع الحقوق محفوظة
+
+</div>
+
+</div>
+
+</footer>
 
 </body>
 </html>
