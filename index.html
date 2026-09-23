@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -13,7 +12,6 @@ content="عامل دليفري - منصة للوصول إلى أصحاب الم�
 <meta name="theme-color" content="#ff7900">
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -29,16 +27,21 @@ body{
     background:#f6f8fa;
     color:#101c29;
     line-height:1.7;
+    overflow-x:hidden;
 }
 
 a{
-    text-decoration:none;
     color:inherit;
+    text-decoration:none;
+}
+
+img{
+    max-width:100%;
+    display:block;
 }
 
 .container{
-    width:92%;
-    max-width:1050px;
+    width:min(92%,1100px);
     margin:auto;
 }
 
@@ -47,11 +50,11 @@ a{
 ========================= */
 
 header{
-    background:rgba(255,255,255,.96);
-    border-bottom:1px solid #e9edf1;
     position:sticky;
     top:0;
     z-index:1000;
+    background:rgba(255,255,255,.96);
+    border-bottom:1px solid #e9edf1;
     backdrop-filter:blur(12px);
 }
 
@@ -69,6 +72,7 @@ header{
     gap:10px;
     font-size:20px;
     font-weight:900;
+    white-space:nowrap;
 }
 
 .logo img{
@@ -79,14 +83,20 @@ header{
 
 .header-buttons{
     display:flex;
+    align-items:center;
     gap:8px;
 }
 
 .header-buttons a{
     padding:10px 15px;
     border-radius:12px;
-    font-weight:900;
     font-size:14px;
+    font-weight:900;
+    transition:.2s;
+}
+
+.header-buttons a:hover{
+    transform:translateY(-2px);
 }
 
 .login{
@@ -95,7 +105,7 @@ header{
 
 .main-btn{
     background:#ff7900;
-    color:white;
+    color:#fff;
 }
 
 /* =========================
@@ -103,44 +113,44 @@ header{
 ========================= */
 
 .hero{
-    padding:65px 0;
+    padding:70px 0;
     background:
-        radial-gradient(circle at 10% 20%,rgba(255,121,0,.09),transparent 30%),
-        radial-gradient(circle at 90% 80%,rgba(255,121,0,.07),transparent 30%),
-        linear-gradient(135deg,#ffffff,#fff6ec);
+        radial-gradient(circle at 10% 20%,rgba(255,121,0,.10),transparent 30%),
+        radial-gradient(circle at 90% 80%,rgba(255,121,0,.08),transparent 30%),
+        linear-gradient(135deg,#fff,#fff6ec);
 }
 
 .hero-content{
-    text-align:center;
-    max-width:800px;
+    max-width:850px;
     margin:auto;
+    text-align:center;
 }
 
 .hero-logo{
     width:150px;
     height:150px;
+    margin:0 auto 20px;
     object-fit:contain;
-    margin-bottom:20px;
     filter:drop-shadow(0 15px 25px rgba(0,0,0,.12));
 }
 
 .badge{
     display:inline-block;
     padding:7px 15px;
+    margin-bottom:15px;
     background:#fff0df;
     color:#db6500;
     border:1px solid #ffd6b0;
     border-radius:30px;
     font-size:14px;
     font-weight:900;
-    margin-bottom:15px;
 }
 
 h1{
+    margin-bottom:15px;
+    color:#07111d;
     font-size:clamp(38px,7vw,65px);
     line-height:1.15;
-    color:#07111d;
-    margin-bottom:15px;
 }
 
 h1 span{
@@ -148,25 +158,27 @@ h1 span{
 }
 
 .hero p{
-    color:#667586;
-    font-size:18px;
     max-width:680px;
     margin:0 auto 25px;
+    color:#667586;
+    font-size:clamp(15px,2vw,18px);
 }
 
 .buttons{
     display:flex;
     justify-content:center;
+    align-items:center;
     flex-wrap:wrap;
     gap:10px;
 }
 
 .btn{
+    min-height:50px;
     display:inline-flex;
     align-items:center;
     justify-content:center;
     gap:8px;
-    padding:14px 22px;
+    padding:13px 21px;
     border-radius:14px;
     font-weight:900;
     transition:.2s;
@@ -190,26 +202,37 @@ h1 span{
 .btn-green{
     background:#34a853;
     color:#fff;
-    box-shadow:0 10px 25px rgba(52,168,83,.2);
+    box-shadow:0 10px 25px rgba(52,168,83,.20);
 }
 
 .btn-white{
     background:#fff;
-    border:1px solid #ddd;
+    color:#07111d;
 }
 
 /* =========================
-   INFO
+   SECTIONS
 ========================= */
 
-.info{
-    padding:55px 0;
+.info,
+.app,
+.location{
+    padding:60px 0;
+}
+
+.info,
+.location{
     background:#fff;
 }
 
+.app{
+    background:#fff7ef;
+}
+
 .title{
+    max-width:700px;
+    margin:0 auto 30px;
     text-align:center;
-    margin-bottom:30px;
 }
 
 .title small{
@@ -218,25 +241,30 @@ h1 span{
 }
 
 .title h2{
-    font-size:32px;
     margin:5px 0;
+    font-size:clamp(27px,4vw,34px);
 }
 
-.title p{
+.title p,
+.location p{
     color:#687586;
 }
 
+/* =========================
+   CARDS
+========================= */
+
 .cards{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(3,minmax(0,1fr));
     gap:16px;
 }
 
 .card{
+    padding:25px;
     background:#fff;
     border:1px solid #e7ebef;
     border-radius:22px;
-    padding:25px;
     text-align:center;
     box-shadow:0 8px 25px rgba(0,0,0,.04);
 }
@@ -246,10 +274,10 @@ h1 span{
     height:58px;
     display:grid;
     place-items:center;
+    margin:0 auto 12px;
     background:#fff0df;
     border-radius:16px;
     font-size:28px;
-    margin:0 auto 12px;
 }
 
 .card h3{
@@ -265,42 +293,37 @@ h1 span{
    APP
 ========================= */
 
-.app{
-    padding:55px 0;
-    background:#fff7ef;
-}
-
 .app-box{
     max-width:850px;
     margin:auto;
+    padding:38px 25px;
     background:#07111d;
     color:#fff;
     border-radius:28px;
-    padding:35px;
     text-align:center;
     box-shadow:0 18px 40px rgba(7,17,29,.15);
 }
 
 .app-icon{
-    font-size:55px;
     margin-bottom:5px;
+    font-size:55px;
 }
 
 .app-box h2{
-    font-size:30px;
     margin-bottom:7px;
+    font-size:clamp(25px,4vw,30px);
 }
 
 .app-box p{
-    color:#bdc8d2;
     margin-bottom:20px;
+    color:#bdc8d2;
 }
 
 .apk-note{
     display:block;
+    margin-top:12px;
     color:#8997a5;
     font-size:12px;
-    margin-top:12px;
 }
 
 /* =========================
@@ -308,8 +331,6 @@ h1 span{
 ========================= */
 
 .location{
-    padding:45px 0;
-    background:#fff;
     text-align:center;
 }
 
@@ -319,16 +340,13 @@ h1 span{
 }
 
 .location-icon{
-    font-size:42px;
     margin-bottom:5px;
+    font-size:42px;
 }
 
 .location h2{
     margin-bottom:7px;
-}
-
-.location p{
-    color:#687586;
+    font-size:clamp(25px,4vw,32px);
 }
 
 /* =========================
@@ -336,20 +354,20 @@ h1 span{
 ========================= */
 
 .cta{
-    padding:55px 0;
+    padding:60px 0;
     background:#07111d;
     color:#fff;
     text-align:center;
 }
 
 .cta h2{
-    font-size:35px;
     margin-bottom:8px;
+    font-size:clamp(28px,5vw,36px);
 }
 
 .cta p{
-    color:#bbc6d0;
     margin-bottom:22px;
+    color:#bbc6d0;
 }
 
 /* =========================
@@ -360,16 +378,21 @@ h1 span{
     position:fixed;
     left:18px;
     bottom:18px;
+    z-index:999;
     width:55px;
     height:55px;
-    border-radius:50%;
-    background:#25d366;
-    color:#fff;
     display:grid;
     place-items:center;
+    background:#25d366;
+    color:#fff;
+    border-radius:50%;
     font-size:27px;
-    z-index:999;
-    box-shadow:0 8px 25px rgba(0,0,0,.2);
+    box-shadow:0 8px 25px rgba(0,0,0,.20);
+    transition:.2s;
+}
+
+.whatsapp:hover{
+    transform:scale(1.08);
 }
 
 /* =========================
@@ -377,10 +400,10 @@ h1 span{
 ========================= */
 
 footer{
+    padding:28px 15px;
     background:#050d15;
     color:#aebbc7;
     text-align:center;
-    padding:28px 15px;
 }
 
 footer strong{
@@ -394,13 +417,37 @@ footer p{
 }
 
 /* =========================
+   TABLET
+========================= */
+
+@media(max-width:850px){
+
+    .cards{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .hero{
+        padding:55px 0;
+    }
+
+    .hero-logo{
+        width:135px;
+        height:135px;
+    }
+}
+
+/* =========================
    MOBILE
 ========================= */
 
-@media(max-width:700px){
+@media(max-width:600px){
+
+    .container{
+        width:min(92%,500px);
+    }
 
     .header{
-        min-height:65px;
+        min-height:64px;
     }
 
     .logo img{
@@ -426,345 +473,383 @@ footer p{
     }
 
     .hero-logo{
-        width:120px;
-        height:120px;
+        width:115px;
+        height:115px;
     }
 
     h1{
-        font-size:42px;
+        font-size:clamp(34px,10vw,44px);
     }
 
     .hero p{
-        font-size:16px;
+        font-size:15px;
     }
 
     .buttons{
+        width:100%;
         flex-direction:column;
     }
 
     .btn{
         width:100%;
+        padding:13px 16px;
+    }
+
+    .info,
+    .app,
+    .location,
+    .cta{
+        padding:45px 0;
     }
 
     .cards{
         grid-template-columns:1fr;
+        gap:12px;
+    }
+
+    .card{
+        padding:22px 18px;
     }
 
     .app-box{
-        padding:28px 20px;
+        padding:30px 18px;
+        border-radius:22px;
     }
 
-    .app-box h2{
-        font-size:26px;
+    .whatsapp{
+        width:50px;
+        height:50px;
+        left:14px;
+        bottom:14px;
+        font-size:24px;
     }
-
 }
 
-</style>
+/* =========================
+   SMALL PHONES
+========================= */
 
+@media(max-width:380px){
+
+    .logo span{
+        font-size:14px;
+    }
+
+    .header-buttons .main-btn{
+        padding:8px;
+    }
+
+    .hero-logo{
+        width:100px;
+        height:100px;
+    }
+
+    h1{
+        font-size:32px;
+    }
+
+    .badge{
+        font-size:12px;
+    }
+
+    .btn{
+        font-size:14px;
+    }
+}
+
+/* =========================
+   LARGE SCREENS
+========================= */
+
+@media(min-width:1400px){
+
+    .container{
+        width:min(90%,1200px);
+    }
+
+    .hero{
+        padding:90px 0;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<!-- =========================
-     HEADER
-========================= -->
-
 <header>
+    <div class="container header">
 
-<div class="container header">
+        <a href="https://working.gt.tc/" class="logo">
+            <img src="logo.png" alt="شعار عامل دليفري">
+            <span>عامل دليفري</span>
+        </a>
 
-<a href="https://working.gt.tc/" class="logo">
+        <nav class="header-buttons" aria-label="التنقل">
+            <a href="https://working.gt.tc/" class="login">
+                🔐 تسجيل الدخول
+            </a>
 
-<img src="logo.png" alt="شعار عامل دليفري">
+            <a href="https://working.gt.tc/" class="main-btn">
+                🚀 اطلب عامل
+            </a>
+        </nav>
 
-<span>عامل دليفري</span>
-
-</a>
-
-<div class="header-buttons">
-
-<a
-href="https://working.gt.tc/"
-class="login">
-🔐 تسجيل الدخول </a>
-
-<a
-href="https://working.gt.tc/"
-class="main-btn">
-🚀 اطلب عامل </a>
-
-</div>
-
-</div>
-
+    </div>
 </header>
 
-<!-- =========================
-     HERO
-========================= -->
+
+<main>
+
+<!-- HERO -->
 
 <section class="hero">
 
-<div class="container hero-content">
+    <div class="container hero-content">
 
-<img
-src="logo.png"
-alt="عامل دليفري"
-class="hero-logo">
+        <img
+            src="logo.png"
+            alt="شعار عامل دليفري"
+            class="hero-logo"
+        >
 
-<div class="badge">
-🛠️ منصة الخدمات والمهن
-</div>
+        <div class="badge">
+            🛠️ منصة الخدمات والمهن
+        </div>
 
-<h1>
-عامل دليفري
-<br>
-<span>أقرب لك وأسرع في خدمتك</span>
-</h1>
+        <h1>
+            عامل دليفري
+            <br>
+            <span>أقرب لك وأسرع في خدمتك</span>
+        </h1>
 
-<p>
-منصة تساعدك على الوصول إلى أصحاب المهن والخدمات
-بسهولة وسرعة، واختيار العامل المناسب لاحتياجك.
-</p>
+        <p>
+            منصة تساعدك على الوصول إلى أصحاب المهن والخدمات
+            بسهولة وسرعة، واختيار العامل المناسب لاحتياجك.
+        </p>
 
-<div class="buttons">
+        <div class="buttons">
 
-<a
-href="https://working.gt.tc/"
-class="btn btn-orange">
-🚀 اطلب عامل الآن </a>
+            <a href="https://working.gt.tc/" class="btn btn-orange">
+                🚀 اطلب عامل الآن
+            </a>
 
-<a
-href="https://working.gt.tc/"
-class="btn btn-dark">
-🔐 تسجيل الدخول </a>
+            <a href="https://working.gt.tc/" class="btn btn-dark">
+                🔐 تسجيل الدخول
+            </a>
 
-<a
-href="عامل دليفري.apk"
-download="عامل دليفري.apk"
-class="btn btn-green">
-📱 تحميل تطبيق Android </a>
+            <a
+                href="عامل دليفري.apk"
+                download="عامل دليفري.apk"
+                class="btn btn-green"
+            >
+                📱 تحميل تطبيق Android
+            </a>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
-<!-- =========================
-     INFO
-========================= -->
+
+<!-- ABOUT -->
 
 <section class="info">
 
-<div class="container">
+    <div class="container">
 
-<div class="title">
+        <div class="title">
 
-<small>عن المنصة</small>
+            <small>عن المنصة</small>
 
-<h2>خدمة بسيطة وسهلة</h2>
+            <h2>خدمة بسيطة وسهلة</h2>
 
-<p>
-كل ما تحتاجه للوصول إلى العامل المناسب في مكان واحد.
-</p>
+            <p>
+                كل ما تحتاجه للوصول إلى العامل المناسب في مكان واحد.
+            </p>
 
-</div>
+        </div>
 
-<div class="cards">
+        <div class="cards">
 
-<div class="card">
+            <article class="card">
 
-<div class="icon">👷</div>
+                <div class="icon">👷</div>
 
-<h3>أصحاب المهن</h3>
+                <h3>أصحاب المهن</h3>
 
-<p>
-الوصول إلى مجموعة من أصحاب المهن والخدمات المتاحة عبر المنصة.
-</p>
+                <p>
+                    الوصول إلى مجموعة من أصحاب المهن والخدمات
+                    المتاحة عبر المنصة.
+                </p>
 
-</div>
+            </article>
 
-<div class="card">
+            <article class="card">
 
-<div class="icon">📱</div>
+                <div class="icon">📱</div>
 
-<h3>من هاتفك</h3>
+                <h3>من هاتفك</h3>
 
-<p>
-استخدم المنصة من الهاتف أو الكمبيوتر، أو حمّل تطبيق Android.
-</p>
+                <p>
+                    استخدم المنصة من الهاتف أو الكمبيوتر،
+                    أو حمّل تطبيق Android.
+                </p>
 
-</div>
+            </article>
 
-<div class="card">
+            <article class="card">
 
-<div class="icon">⚡</div>
+                <div class="icon">⚡</div>
 
-<h3>بخطوات بسيطة</h3>
+                <h3>بخطوات بسيطة</h3>
 
-<p>
-اختر المهنة، اختر العامل المتاح، ثم أرسل طلب الخدمة.
-</p>
+                <p>
+                    اختر المهنة، اختر العامل المتاح،
+                    ثم أرسل طلب الخدمة.
+                </p>
 
-</div>
+            </article>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
-<!-- =========================
-     APP DOWNLOAD
-========================= -->
+
+<!-- APP -->
 
 <section class="app">
 
-<div class="container">
+    <div class="container">
 
-<div class="app-box">
+        <div class="app-box">
 
-<div class="app-icon">
-📲
-</div>
+            <div class="app-icon">📲</div>
 
-<h2>
-تطبيق عامل دليفري
-</h2>
+            <h2>تطبيق عامل دليفري</h2>
 
-<p>
-حمّل تطبيق Android للوصول إلى منصة عامل دليفري
-بسهولة من هاتفك.
-</p>
+            <p>
+                حمّل تطبيق Android للوصول إلى منصة عامل دليفري
+                بسهولة من هاتفك.
+            </p>
 
-<div class="buttons">
+            <div class="buttons">
 
-<a
-href="عامل دليفري.apk"
-download="عامل دليفري.apk"
-class="btn btn-green">
-⬇️ تحميل التطبيق </a>
+                <a
+                    href="عامل دليفري.apk"
+                    download="عامل دليفري.apk"
+                    class="btn btn-green"
+                >
+                    ⬇️ تحميل التطبيق
+                </a>
 
-<a
-href="https://working.gt.tc/"
-class="btn btn-orange">
-🌐 فتح المنصة </a>
+                <a
+                    href="https://working.gt.tc/"
+                    class="btn btn-orange"
+                >
+                    🌐 فتح المنصة
+                </a>
 
-</div>
+            </div>
 
-<span class="apk-note">
-ملف التطبيق: عامل دليفري.apk
-</span>
+            <span class="apk-note">
+                تطبيق Android — عامل دليفري
+            </span>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
-<!-- =========================
-     LOCATION
-========================= -->
+
+<!-- LOCATION -->
 
 <section class="location">
 
-<div class="container">
+    <div class="container">
 
-<div class="location-box">
+        <div class="location-box">
 
-<div class="location-icon">
-📍
-</div>
+            <div class="location-icon">📍</div>
 
-<h2>
-عامل دليفري في طبرق
-</h2>
+            <h2>عامل دليفري في طبرق</h2>
 
-<p>
-نبدأ بخدمة مدينة طبرق، ونسعى إلى تطوير المنصة
-وتوسيع نطاق الخدمات مستقبلاً لتشمل مدناً أخرى.
-</p>
+            <p>
+                نبدأ بخدمة مدينة طبرق، ونسعى إلى تطوير المنصة
+                وتوسيع نطاق الخدمات مستقبلاً لتشمل مدناً أخرى.
+            </p>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
-<!-- =========================
-     CTA
-========================= -->
+
+<!-- CTA -->
 
 <section class="cta">
 
-<div class="container">
+    <div class="container">
 
-<h2>
-تحتاج إلى عامل؟
-</h2>
+        <h2>تحتاج إلى عامل؟</h2>
 
-<p>
-ادخل إلى المنصة الآن وابدأ البحث عن الخدمة التي تحتاجها.
-</p>
+        <p>
+            ادخل إلى المنصة الآن وابدأ البحث عن الخدمة التي تحتاجها.
+        </p>
 
-<div class="buttons">
+        <div class="buttons">
 
-<a
-href="https://working.gt.tc/"
-class="btn btn-orange">
-🚀 اطلب عامل الآن </a>
+            <a
+                href="https://working.gt.tc/"
+                class="btn btn-orange"
+            >
+                🚀 اطلب عامل الآن
+            </a>
 
-<a
-href="https://working.gt.tc/"
-class="btn btn-white">
-🔐 تسجيل الدخول </a>
+            <a
+                href="عامل دليفري.apk"
+                download="عامل دليفري.apk"
+                class="btn btn-green"
+            >
+                📱 تحميل التطبيق
+            </a>
 
-<a
-href="عامل دليفري.apk"
-download="عامل دليفري.apk"
-class="btn btn-green">
-📱 تحميل التطبيق </a>
+        </div>
 
-</div>
-
-</div>
+    </div>
 
 </section>
 
-<!-- =========================
-     WHATSAPP
-========================= -->
+</main>
+
+
+<!-- WHATSAPP -->
 
 <a
-href="https://wa.me/218000000000"
-target="_blank"
-rel="noopener"
-class="whatsapp"
-title="تواصل معنا عبر واتساب">
-
-💬
-
+    href="https://wa.me/218000000000"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="whatsapp"
+    aria-label="تواصل معنا عبر واتساب"
+    title="تواصل معنا عبر واتساب"
+>
+    💬
 </a>
 
-<!-- =========================
-     FOOTER
-========================= -->
+
+<!-- FOOTER -->
 
 <footer>
 
-<strong>
-عامل دليفري
-</strong>
+    <strong>عامل دليفري</strong>
 
-<p>
-أقرب لك وأسرع في خدمتك
-</p>
+    <p>أقرب لك وأسرع في خدمتك</p>
 
-<p>
-© 2026 عامل دليفري — جميع الحقوق محفوظة
-</p>
+    <p>© 2026 عامل دليفري — جميع الحقوق محفوظة</p>
 
 </footer>
 
