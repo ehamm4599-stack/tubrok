@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -24,11 +25,7 @@ html{
 }
 
 body{
-    font-family:
-    Tahoma,
-    Arial,
-    sans-serif;
-
+    font-family:Tahoma,Arial,sans-serif;
     background:#f7f8fa;
     color:#172231;
     line-height:1.8;
@@ -49,28 +46,22 @@ button{
     margin:auto;
 }
 
-/* =========================
-   NAVBAR
-========================= */
+/* NAVBAR */
 
 .navbar{
     position:sticky;
     top:0;
     z-index:1000;
-
     background:rgba(255,255,255,.95);
     backdrop-filter:blur(15px);
-
     border-bottom:1px solid #eee;
 }
 
 .navbar-inner{
     min-height:72px;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     gap:15px;
 }
 
@@ -78,7 +69,6 @@ button{
     display:flex;
     align-items:center;
     gap:10px;
-
     font-weight:900;
     font-size:19px;
 }
@@ -110,56 +100,35 @@ button{
     color:#fff;
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero{
     position:relative;
     overflow:hidden;
-
-    background:
-    linear-gradient(
-        135deg,
-        #ffffff,
-        #fff3e5
-    );
-
+    background:linear-gradient(135deg,#ffffff,#fff3e5);
     padding:65px 0 75px;
 }
 
 .hero::before{
     content:"";
-
     position:absolute;
-
     width:350px;
     height:350px;
-
     background:#ff7900;
-
     opacity:.06;
-
     border-radius:50%;
-
     left:-130px;
     top:30px;
 }
 
 .hero::after{
     content:"";
-
     position:absolute;
-
     width:280px;
     height:280px;
-
     background:#ff7900;
-
     opacity:.05;
-
     border-radius:50%;
-
     right:-100px;
     bottom:-80px;
 }
@@ -167,39 +136,27 @@ button{
 .hero-grid{
     position:relative;
     z-index:2;
-
     display:grid;
     grid-template-columns:1.1fr .9fr;
-
     align-items:center;
-
     gap:45px;
 }
 
 .badge{
     display:inline-block;
-
     background:#fff0df;
     color:#dc6500;
-
     border:1px solid #ffd5ac;
-
     border-radius:50px;
-
     padding:7px 15px;
-
     font-weight:900;
-
     margin-bottom:15px;
 }
 
 .hero h1{
     font-size:clamp(40px,6vw,68px);
-
     line-height:1.1;
-
     color:#07111d;
-
     margin-bottom:20px;
 }
 
@@ -210,36 +167,26 @@ button{
 .hero-text{
     font-size:19px;
     color:#687586;
-
     max-width:680px;
-
     margin-bottom:25px;
 }
 
 .hero-buttons{
     display:flex;
     flex-wrap:wrap;
-
     gap:10px;
 }
 
 .btn{
     border:0;
-
     padding:14px 21px;
-
     border-radius:15px;
-
     font-weight:900;
-
     display:inline-flex;
     align-items:center;
     justify-content:center;
-
     gap:8px;
-
     cursor:pointer;
-
     transition:.2s;
 }
 
@@ -250,9 +197,7 @@ button{
 .btn-main{
     background:#ff7900;
     color:white;
-
-    box-shadow:
-    0 10px 25px rgba(255,121,0,.25);
+    box-shadow:0 10px 25px rgba(255,121,0,.25);
 }
 
 .btn-dark{
@@ -262,8 +207,13 @@ button{
 
 .btn-light{
     background:white;
-
     border:1px solid #ddd;
+}
+
+.btn-android{
+    background:#34a853;
+    color:#fff;
+    box-shadow:0 10px 25px rgba(52,168,83,.22);
 }
 
 .hero-logo{
@@ -273,17 +223,10 @@ button{
 
 .hero-logo img{
     width:min(430px,100%);
-
-    filter:
-    drop-shadow(
-        0 25px 30px
-        rgba(0,0,0,.15)
-    );
+    filter:drop-shadow(0 25px 30px rgba(0,0,0,.15));
 }
 
-/* =========================
-   SECTIONS
-========================= */
+/* SECTIONS */
 
 section{
     padding:75px 0;
@@ -291,11 +234,8 @@ section{
 
 .section-title{
     text-align:center;
-
     max-width:760px;
-
-    margin:
-    0 auto 40px;
+    margin:0 auto 40px;
 }
 
 .section-title small{
@@ -306,10 +246,7 @@ section{
 
 .section-title h2{
     color:#07111d;
-
-    font-size:
-    clamp(29px,4vw,44px);
-
+    font-size:clamp(29px,4vw,44px);
     margin:5px 0 10px;
 }
 
@@ -317,9 +254,7 @@ section{
     color:#687586;
 }
 
-/* =========================
-   ABOUT
-========================= */
+/* ABOUT */
 
 .about{
     background:white;
@@ -327,25 +262,16 @@ section{
 
 .about-grid{
     display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:18px;
 }
 
 .info-card{
     background:#fff;
-
     border:1px solid #e8ecf0;
-
     border-radius:23px;
-
     padding:25px;
-
-    box-shadow:
-    0 10px 30px rgba(7,17,29,.05);
-
+    box-shadow:0 10px 30px rgba(7,17,29,.05);
     transition:.2s;
 }
 
@@ -356,22 +282,16 @@ section{
 .icon{
     width:60px;
     height:60px;
-
     display:grid;
     place-items:center;
-
     background:#fff0df;
-
     border-radius:17px;
-
     font-size:29px;
-
     margin-bottom:15px;
 }
 
 .info-card h3{
     margin-bottom:8px;
-
     color:#07111d;
 }
 
@@ -379,9 +299,7 @@ section{
     color:#687586;
 }
 
-/* =========================
-   HOW IT WORKS
-========================= */
+/* HOW */
 
 .how{
     background:#07111d;
@@ -398,40 +316,27 @@ section{
 
 .steps{
     display:grid;
-
-    grid-template-columns:
-    repeat(4,1fr);
-
+    grid-template-columns:repeat(4,1fr);
     gap:15px;
 }
 
 .step{
     background:#102235;
-
     border:1px solid #1d3449;
-
     border-radius:22px;
-
     padding:24px;
 }
 
 .step-number{
     width:45px;
     height:45px;
-
     display:grid;
     place-items:center;
-
     background:#ff7900;
-
     color:white;
-
     border-radius:50%;
-
     font-weight:900;
-
     font-size:18px;
-
     margin-bottom:15px;
 }
 
@@ -443,48 +348,31 @@ section{
     color:#b7c3ce;
 }
 
-/* =========================
-   CUSTOMER GUIDE
-========================= */
+/* GUIDE */
 
 .guide-grid{
     display:grid;
-
-    grid-template-columns:
-    repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:20px;
 }
 
 .guide{
     background:white;
-
     border:1px solid #e8ecf0;
-
     border-radius:25px;
-
     padding:28px;
-
-    box-shadow:
-    0 10px 30px rgba(0,0,0,.04);
+    box-shadow:0 10px 30px rgba(0,0,0,.04);
 }
 
 .guide-number{
     display:inline-grid;
-
     place-items:center;
-
     width:50px;
     height:50px;
-
     border-radius:15px;
-
     background:#fff0df;
-
     color:#ff7900;
-
     font-size:23px;
-
     margin-bottom:12px;
 }
 
@@ -498,9 +386,7 @@ section{
 
 .guide ul{
     margin-top:15px;
-
     padding-right:20px;
-
     color:#687586;
 }
 
@@ -508,9 +394,7 @@ section{
     margin-bottom:8px;
 }
 
-/* =========================
-   PROFESSIONS
-========================= */
+/* PROFESSIONS */
 
 .professions{
     background:#fff7ef;
@@ -518,24 +402,16 @@ section{
 
 .profession-grid{
     display:grid;
-
-    grid-template-columns:
-    repeat(5,1fr);
-
+    grid-template-columns:repeat(5,1fr);
     gap:14px;
 }
 
 .profession{
     background:white;
-
     border-radius:20px;
-
     padding:20px;
-
     text-align:center;
-
     border:1px solid #ffe2c4;
-
     transition:.2s;
 }
 
@@ -545,7 +421,6 @@ section{
 
 .profession-icon{
     font-size:38px;
-
     margin-bottom:7px;
 }
 
@@ -553,32 +428,23 @@ section{
     display:block;
 }
 
-/* =========================
-   STATUS
-========================= */
+/* STATUS */
 
 .status-grid{
     display:grid;
-
-    grid-template-columns:
-    repeat(4,1fr);
-
+    grid-template-columns:repeat(4,1fr);
     gap:15px;
 }
 
 .status{
     background:white;
-
     border:1px solid #e8ecf0;
-
     border-radius:20px;
-
     padding:22px;
 }
 
 .status-icon{
     font-size:35px;
-
     margin-bottom:8px;
 }
 
@@ -590,168 +456,142 @@ section{
     color:#687586;
 }
 
-/* =========================
-   APP SECTION
-========================= */
+/* APP */
 
 .app-section{
-    background:
-    linear-gradient(
-        135deg,
-        #fff2e3,
-        #ffffff
-    );
+    background:linear-gradient(135deg,#fff2e3,#ffffff);
 }
 
 .app-box{
     border:1px solid #ffd5aa;
-
     border-radius:30px;
-
     padding:40px;
-
     display:grid;
-
-    grid-template-columns:
-    1fr auto;
-
+    grid-template-columns:1fr auto;
     align-items:center;
-
     gap:30px;
 }
 
 .app-box h2{
     font-size:35px;
-
     color:#07111d;
-
     margin-bottom:8px;
 }
 
 .app-box p{
     color:#687586;
-
     margin-bottom:18px;
 }
 
 .app-buttons{
     display:flex;
     flex-wrap:wrap;
-
     gap:10px;
 }
 
-/* =========================
-   FAQ
-========================= */
+.download-card{
+    background:#07111d;
+    color:white;
+    border-radius:25px;
+    padding:25px;
+    text-align:center;
+    min-width:230px;
+    box-shadow:0 15px 35px rgba(7,17,29,.18);
+}
+
+.download-card .phone-icon{
+    font-size:58px;
+    margin-bottom:5px;
+}
+
+.download-card h3{
+    margin-bottom:5px;
+}
+
+.download-card p{
+    color:#b8c4cf;
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+.download-card a{
+    width:100%;
+}
+
+/* FAQ */
 
 .faq{
     display:grid;
-
-    grid-template-columns:
-    repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:14px;
 }
 
 details{
     background:white;
-
     border:1px solid #e7ebef;
-
     border-radius:17px;
-
     padding:17px;
 }
 
 summary{
     cursor:pointer;
-
     font-weight:900;
 }
 
 details p{
     color:#687586;
-
     margin-top:10px;
 }
 
-/* =========================
-   CTA
-========================= */
+/* CTA */
 
 .cta{
     background:#07111d;
-
     color:white;
-
     text-align:center;
 }
 
 .cta h2{
     font-size:clamp(30px,5vw,48px);
-
     margin-bottom:10px;
 }
 
 .cta p{
     color:#bac5cf;
-
     max-width:700px;
-
     margin:0 auto 25px;
 }
 
-/* =========================
-   WHATSAPP
-========================= */
+/* WHATSAPP */
 
 .whatsapp{
     position:fixed;
-
     bottom:20px;
     left:20px;
-
     width:58px;
     height:58px;
-
     background:#25d366;
-
     color:white;
-
     border-radius:50%;
-
     display:grid;
-
     place-items:center;
-
     font-size:28px;
-
     z-index:999;
-
-    box-shadow:
-    0 8px 25px rgba(0,0,0,.2);
+    box-shadow:0 8px 25px rgba(0,0,0,.2);
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer{
     background:#050d15;
-
     color:#c3ced8;
-
     padding:40px 0 20px;
 }
 
 .footer-grid{
     display:flex;
-
     justify-content:space-between;
-
     gap:30px;
-
     flex-wrap:wrap;
 }
 
@@ -765,23 +605,17 @@ footer a{
 
 .copyright{
     text-align:center;
-
     margin-top:25px;
-
     color:#788796;
-
     font-size:13px;
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:900px){
 
     .hero-grid{
         grid-template-columns:1fr;
-
         text-align:center;
     }
 
@@ -803,33 +637,33 @@ footer a{
     }
 
     .about-grid{
-        grid-template-columns:
-        repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .steps{
-        grid-template-columns:
-        repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .profession-grid{
-        grid-template-columns:
-        repeat(3,1fr);
+        grid-template-columns:repeat(3,1fr);
     }
 
     .status-grid{
-        grid-template-columns:
-        repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .app-box{
         grid-template-columns:1fr;
-
         text-align:center;
     }
 
     .app-buttons{
         justify-content:center;
+    }
+
+    .download-card{
+        max-width:360px;
+        margin:auto;
     }
 }
 
@@ -878,8 +712,7 @@ footer a{
     }
 
     .profession-grid{
-        grid-template-columns:
-        repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .app-box{
@@ -893,20 +726,19 @@ footer a{
     .whatsapp{
         width:52px;
         height:52px;
-
         bottom:15px;
         left:15px;
     }
+
 }
 
 </style>
+
 </head>
 
 <body>
 
-<!-- =========================
-     NAVBAR
-========================= -->
+<!-- NAVBAR -->
 
 <header class="navbar">
 
@@ -916,9 +748,7 @@ footer a{
 
 <img src="logo.png" alt="شعار عامل دليفري">
 
-<span>
-عامل دليفري
-</span>
+<span>عامل دليفري</span>
 
 </a>
 
@@ -938,10 +768,7 @@ footer a{
 
 </header>
 
-
-<!-- =========================
-     HERO
-========================= -->
+<!-- HERO -->
 
 <section class="hero">
 
@@ -954,14 +781,9 @@ footer a{
 </div>
 
 <h1>
-
 أقرب لك
 <br>
-
-<span>
-وأسرع في خدمتك
-</span>
-
+<span>وأسرع في خدمتك</span>
 </h1>
 
 <p class="hero-text">
@@ -991,7 +813,6 @@ footer a{
 
 </div>
 
-
 <div class="hero-logo">
 
 <img src="logo.png" alt="عامل دليفري">
@@ -1002,10 +823,7 @@ footer a{
 
 </section>
 
-
-<!-- =========================
-     ABOUT
-========================= -->
+<!-- ABOUT -->
 
 <section class="about">
 
@@ -1015,9 +833,7 @@ footer a{
 
 <small>عن المشروع</small>
 
-<h2>
-ما هي منصة عامل دليفري؟
-</h2>
+<h2>ما هي منصة عامل دليفري؟</h2>
 
 <p>
 منصة إلكترونية تساعد الزائر على الوصول إلى أصحاب المهن
@@ -1026,19 +842,13 @@ footer a{
 
 </div>
 
-
 <div class="about-grid">
-
 
 <div class="info-card">
 
-<div class="icon">
-🤝
-</div>
+<div class="icon">🤝</div>
 
-<h3>
-تقريب العامل من العميل
-</h3>
+<h3>تقريب العامل من العميل</h3>
 
 <p>
 الفكرة الأساسية للمنصة هي تسهيل الوصول إلى العامل المناسب
@@ -1047,16 +857,11 @@ footer a{
 
 </div>
 
-
 <div class="info-card">
 
-<div class="icon">
-📱
-</div>
+<div class="icon">📱</div>
 
-<h3>
-استخدام سهل من الهاتف
-</h3>
+<h3>استخدام سهل من الهاتف</h3>
 
 <p>
 تم تصميم المنصة لتعمل على الهاتف والكمبيوتر،
@@ -1065,16 +870,11 @@ footer a{
 
 </div>
 
-
 <div class="info-card">
 
-<div class="icon">
-⚡
-</div>
+<div class="icon">⚡</div>
 
-<h3>
-طلب الخدمة بسهولة
-</h3>
+<h3>طلب الخدمة بسهولة</h3>
 
 <p>
 يستطيع العميل اختيار المهنة وإرسال طلبه ومتابعة
@@ -1083,17 +883,13 @@ footer a{
 
 </div>
 
-
 </div>
 
 </div>
 
 </section>
 
-
-<!-- =========================
-     HOW IT WORKS
-========================= -->
+<!-- HOW -->
 
 <section class="how" id="how">
 
@@ -1101,13 +897,9 @@ footer a{
 
 <div class="section-title">
 
-<small>
-طريقة عمل المنصة
-</small>
+<small>طريقة عمل المنصة</small>
 
-<h2>
-كيف تعمل عامل دليفري؟
-</h2>
+<h2>كيف تعمل عامل دليفري؟</h2>
 
 <p>
 تمر عملية طلب الخدمة بعدة خطوات بسيطة.
@@ -1115,19 +907,13 @@ footer a{
 
 </div>
 
-
 <div class="steps">
-
 
 <div class="step">
 
-<div class="step-number">
-1
-</div>
+<div class="step-number">1</div>
 
-<h3>
-الدخول إلى المنصة
-</h3>
+<h3>الدخول إلى المنصة</h3>
 
 <p>
 يدخل الزائر إلى الموقع ثم يختار الخدمة التي يحتاج إليها.
@@ -1135,16 +921,11 @@ footer a{
 
 </div>
 
-
 <div class="step">
 
-<div class="step-number">
-2
-</div>
+<div class="step-number">2</div>
 
-<h3>
-اختيار المهنة
-</h3>
+<h3>اختيار المهنة</h3>
 
 <p>
 يختار العميل نوع العامل المطلوب مثل كهربائي أو سباك أو غيره.
@@ -1152,16 +933,11 @@ footer a{
 
 </div>
 
-
 <div class="step">
 
-<div class="step-number">
-3
-</div>
+<div class="step-number">3</div>
 
-<h3>
-إرسال الطلب
-</h3>
+<h3>إرسال الطلب</h3>
 
 <p>
 يتم إرسال طلب الخدمة إلى العامل المناسب والمتاح.
@@ -1169,16 +945,11 @@ footer a{
 
 </div>
 
-
 <div class="step">
 
-<div class="step-number">
-4
-</div>
+<div class="step-number">4</div>
 
-<h3>
-قبول الطلب
-</h3>
+<h3>قبول الطلب</h3>
 
 <p>
 عند قبول العامل للطلب يستطيع العميل التواصل معه وإتمام الخدمة.
@@ -1186,17 +957,13 @@ footer a{
 
 </div>
 
-
 </div>
 
 </div>
 
 </section>
 
-
-<!-- =========================
-     CUSTOMER GUIDE
-========================= -->
+<!-- CUSTOMER GUIDE -->
 
 <section>
 
@@ -1204,13 +971,9 @@ footer a{
 
 <div class="section-title">
 
-<small>
-إرشادات العميل
-</small>
+<small>إرشادات العميل</small>
 
-<h2>
-طريقة استعمال المنصة للزائر
-</h2>
+<h2>طريقة استعمال المنصة للزائر</h2>
 
 <p>
 إذا كنت تستخدم عامل دليفري لأول مرة، اتبع هذه الخطوات.
@@ -1218,19 +981,13 @@ footer a{
 
 </div>
 
-
 <div class="guide-grid">
-
 
 <div class="guide">
 
-<div class="guide-number">
-1
-</div>
+<div class="guide-number">1</div>
 
-<h3>
-إنشاء حساب عميل
-</h3>
+<h3>إنشاء حساب عميل</h3>
 
 <p>
 اضغط على تسجيل الدخول، ثم أنشئ حسابك كعميل باستخدام
@@ -1239,32 +996,21 @@ footer a{
 
 <ul>
 
-<li>
-استخدم بيانات صحيحة.
-</li>
+<li>استخدم بيانات صحيحة.</li>
 
-<li>
-احتفظ بكلمة المرور.
-</li>
+<li>احتفظ بكلمة المرور.</li>
 
-<li>
-يمكنك الدخول إلى حسابك لاحقاً لمتابعة طلباتك.
-</li>
+<li>يمكنك الدخول إلى حسابك لاحقاً لمتابعة طلباتك.</li>
 
 </ul>
 
 </div>
 
-
 <div class="guide">
 
-<div class="guide-number">
-2
-</div>
+<div class="guide-number">2</div>
 
-<h3>
-اختيار العامل
-</h3>
+<h3>اختيار العامل</h3>
 
 <p>
 بعد الدخول إلى منصة العملاء ستظهر لك المهن والخدمات المتاحة.
@@ -1272,32 +1018,21 @@ footer a{
 
 <ul>
 
-<li>
-اختر المهنة المطلوبة.
-</li>
+<li>اختر المهنة المطلوبة.</li>
 
-<li>
-راجع العامل المتاح.
-</li>
+<li>راجع العامل المتاح.</li>
 
-<li>
-اضغط على زر طلب العامل.
-</li>
+<li>اضغط على زر طلب العامل.</li>
 
 </ul>
 
 </div>
 
-
 <div class="guide">
 
-<div class="guide-number">
-3
-</div>
+<div class="guide-number">3</div>
 
-<h3>
-متابعة الطلب
-</h3>
+<h3>متابعة الطلب</h3>
 
 <p>
 بعد إرسال الطلب تستطيع متابعة حالته من صفحة طلباتك.
@@ -1305,32 +1040,21 @@ footer a{
 
 <ul>
 
-<li>
-قيد الانتظار.
-</li>
+<li>قيد الانتظار.</li>
 
-<li>
-تم قبول الطلب.
-</li>
+<li>تم قبول الطلب.</li>
 
-<li>
-تم إكمال الخدمة أو إلغاء الطلب.
-</li>
+<li>تم إكمال الخدمة أو إلغاء الطلب.</li>
 
 </ul>
 
 </div>
 
-
 <div class="guide">
 
-<div class="guide-number">
-4
-</div>
+<div class="guide-number">4</div>
 
-<h3>
-التواصل مع العامل
-</h3>
+<h3>التواصل مع العامل</h3>
 
 <p>
 عند قبول العامل للطلب تظهر وسيلة التواصل حسب نظام المنصة.
@@ -1338,22 +1062,15 @@ footer a{
 
 <ul>
 
-<li>
-نسّق معه تفاصيل الخدمة.
-</li>
+<li>نسّق معه تفاصيل الخدمة.</li>
 
-<li>
-اتفق على مكان الخدمة.
-</li>
+<li>اتفق على مكان الخدمة.</li>
 
-<li>
-بعد انتهاء الخدمة يتم تحديث حالة الطلب.
-</li>
+<li>بعد انتهاء الخدمة يتم تحديث حالة الطلب.</li>
 
 </ul>
 
 </div>
-
 
 </div>
 
@@ -1361,10 +1078,7 @@ footer a{
 
 </section>
 
-
-<!-- =========================
-     PROFESSIONS
-========================= -->
+<!-- PROFESSIONS -->
 
 <section class="professions">
 
@@ -1372,13 +1086,9 @@ footer a{
 
 <div class="section-title">
 
-<small>
-الخدمات
-</small>
+<small>الخدمات</small>
 
-<h2>
-أصحاب المهن والخدمات
-</h2>
+<h2>أصحاب المهن والخدمات</h2>
 
 <p>
 يمكن للمنصة عرض مجموعة مختلفة من أصحاب المهن حسب الخدمات
@@ -1387,69 +1097,57 @@ footer a{
 
 </div>
 
-
 <div class="profession-grid">
-
 
 <div class="profession">
 <div class="profession-icon">⚡</div>
 <strong>كهربائي</strong>
 </div>
 
-
 <div class="profession">
 <div class="profession-icon">🚰</div>
 <strong>سباك</strong>
 </div>
-
 
 <div class="profession">
 <div class="profession-icon">🎨</div>
 <strong>دهان</strong>
 </div>
 
-
 <div class="profession">
 <div class="profession-icon">🧱</div>
 <strong>بناء</strong>
 </div>
-
 
 <div class="profession">
 <div class="profession-icon">🔧</div>
 <strong>ميكانيكي</strong>
 </div>
 
-
 <div class="profession">
 <div class="profession-icon">🪚</div>
 <strong>نجار</strong>
 </div>
-
 
 <div class="profession">
 <div class="profession-icon">❄️</div>
 <strong>تكييف وتبريد</strong>
 </div>
 
-
 <div class="profession">
 <div class="profession-icon">🧹</div>
 <strong>خدمات منزلية</strong>
 </div>
-
 
 <div class="profession">
 <div class="profession-icon">🔩</div>
 <strong>صيانة</strong>
 </div>
 
-
 <div class="profession">
 <div class="profession-icon">➕</div>
 <strong>خدمات أخرى</strong>
 </div>
-
 
 </div>
 
@@ -1457,10 +1155,7 @@ footer a{
 
 </section>
 
-
-<!-- =========================
-     REQUEST STATUS
-========================= -->
+<!-- STATUS -->
 
 <section>
 
@@ -1468,13 +1163,9 @@ footer a{
 
 <div class="section-title">
 
-<small>
-متابعة الطلب
-</small>
+<small>متابعة الطلب</small>
 
-<h2>
-ماذا يحدث بعد إرسال الطلب؟
-</h2>
+<h2>ماذا يحدث بعد إرسال الطلب؟</h2>
 
 <p>
 يمكن للعميل معرفة المرحلة التي وصل إليها طلبه.
@@ -1482,19 +1173,13 @@ footer a{
 
 </div>
 
-
 <div class="status-grid">
-
 
 <div class="status">
 
-<div class="status-icon">
-⏳
-</div>
+<div class="status-icon">⏳</div>
 
-<h3>
-قيد الانتظار
-</h3>
+<h3>قيد الانتظار</h3>
 
 <p>
 تم إرسال الطلب وينتظر رد العامل.
@@ -1502,16 +1187,11 @@ footer a{
 
 </div>
 
-
 <div class="status">
 
-<div class="status-icon">
-✅
-</div>
+<div class="status-icon">✅</div>
 
-<h3>
-تم القبول
-</h3>
+<h3>تم القبول</h3>
 
 <p>
 قام العامل بقبول الطلب ويمكن بدء التواصل معه.
@@ -1519,16 +1199,11 @@ footer a{
 
 </div>
 
-
 <div class="status">
 
-<div class="status-icon">
-🏁
-</div>
+<div class="status-icon">🏁</div>
 
-<h3>
-تم الإنجاز
-</h3>
+<h3>تم الإنجاز</h3>
 
 <p>
 تم الانتهاء من الخدمة وإغلاق الطلب.
@@ -1536,16 +1211,11 @@ footer a{
 
 </div>
 
-
 <div class="status">
 
-<div class="status-icon">
-❌
-</div>
+<div class="status-icon">❌</div>
 
-<h3>
-ملغي
-</h3>
+<h3>ملغي</h3>
 
 <p>
 تم إلغاء الطلب ولن يبقى ضمن الطلبات النشطة.
@@ -1553,17 +1223,13 @@ footer a{
 
 </div>
 
-
 </div>
 
 </div>
 
 </section>
 
-
-<!-- =========================
-     WORKER GUIDE
-========================= -->
+<!-- WORKER GUIDE -->
 
 <section class="about">
 
@@ -1571,13 +1237,9 @@ footer a{
 
 <div class="section-title">
 
-<small>
-إرشادات العامل
-</small>
+<small>إرشادات العامل</small>
 
-<h2>
-كيف يعمل العامل داخل المنصة؟
-</h2>
+<h2>كيف يعمل العامل داخل المنصة؟</h2>
 
 <p>
 العامل يتعامل مع الطلبات الموجهة إليه من خلال حسابه.
@@ -1585,19 +1247,13 @@ footer a{
 
 </div>
 
-
 <div class="about-grid">
-
 
 <div class="info-card">
 
-<div class="icon">
-👷
-</div>
+<div class="icon">👷</div>
 
-<h3>
-استقبال الطلب
-</h3>
+<h3>استقبال الطلب</h3>
 
 <p>
 عندما يرسل العميل طلباً مناسباً للعامل، يظهر الطلب في حساب العامل.
@@ -1605,16 +1261,11 @@ footer a{
 
 </div>
 
-
 <div class="info-card">
 
-<div class="icon">
-✅
-</div>
+<div class="icon">✅</div>
 
-<h3>
-قبول أو رفض
-</h3>
+<h3>قبول أو رفض</h3>
 
 <p>
 يمكن للعامل مراجعة الطلب ثم قبوله إذا كان يستطيع تنفيذ الخدمة،
@@ -1623,16 +1274,11 @@ footer a{
 
 </div>
 
-
 <div class="info-card">
 
-<div class="icon">
-📞
-</div>
+<div class="icon">📞</div>
 
-<h3>
-التواصل مع العميل
-</h3>
+<h3>التواصل مع العميل</h3>
 
 <p>
 بعد قبول الطلب تصبح معلومات التواصل متاحة حسب قواعد المنصة
@@ -1641,36 +1287,48 @@ footer a{
 
 </div>
 
-
 </div>
 
 </div>
 
 </section>
 
+<!-- APP DOWNLOAD -->
 
-<!-- =========================
-     APP
-========================= -->
-
-<section class="app-section">
+<section class="app-section" id="download">
 
 <div class="container">
+
+<div class="section-title">
+
+<small>تطبيق عامل دليفري</small>
+
+<h2>حمّل التطبيق على هاتفك</h2>
+
+<p>
+يمكنك استخدام منصة عامل دليفري من الموقع، أو تحميل تطبيق Android
+وتثبيته على هاتفك للوصول إلى المنصة بسهولة.
+</p>
+
+</div>
 
 <div class="app-box">
 
 <div>
 
-<h2>
-📱 عامل دليفري على هاتفك
-</h2>
+<h2>📱 عامل دليفري على هاتفك</h2>
 
 <p>
-يمكن استخدام الموقع من الهاتف مباشرة، كما يمكن تثبيته على شاشة
-الهاتف عندما يدعم المتصفح خاصية تثبيت تطبيقات الويب.
+نسخة Android متاحة للتحميل مباشرة من موقع عامل دليفري.
+اضغط على زر التحميل وانتظر اكتمال تنزيل التطبيق، ثم قم بتثبيته على هاتفك.
 </p>
 
 <div class="app-buttons">
+
+<a href="تطبيق عامل دليفري.apk"
+class="btn btn-android"
+download>
+🤖 تحميل تطبيق Android </a>
 
 <a href="customer.php" class="btn btn-main">
 🚀 فتح المنصة
@@ -1684,9 +1342,21 @@ footer a{
 
 </div>
 
+<div class="download-card">
 
-<div style="font-size:90px">
-📲
+<div class="phone-icon">📲</div>
+
+<h3>تطبيق عامل دليفري</h3>
+
+<p>
+متاح الآن لأجهزة Android
+</p>
+
+<a href="تطبيق عامل دليفري.apk"
+class="btn btn-android"
+download>
+⬇️ تحميل APK </a>
+
 </div>
 
 </div>
@@ -1695,10 +1365,7 @@ footer a{
 
 </section>
 
-
-<!-- =========================
-     FAQ
-========================= -->
+<!-- FAQ -->
 
 <section>
 
@@ -1706,25 +1373,17 @@ footer a{
 
 <div class="section-title">
 
-<small>
-الأسئلة الشائعة
-</small>
+<small>الأسئلة الشائعة</small>
 
-<h2>
-أسئلة قد تهمك
-</h2>
+<h2>أسئلة قد تهمك</h2>
 
 </div>
 
-
 <div class="faq">
-
 
 <details>
 
-<summary>
-ما هي فكرة عامل دليفري؟
-</summary>
+<summary>ما هي فكرة عامل دليفري؟</summary>
 
 <p>
 هي منصة إلكترونية تهدف إلى تسهيل وصول العملاء إلى أصحاب المهن
@@ -1733,12 +1392,9 @@ footer a{
 
 </details>
 
-
 <details>
 
-<summary>
-كيف أطلب عاملاً؟
-</summary>
+<summary>كيف أطلب عاملاً؟</summary>
 
 <p>
 ادخل إلى منصة العملاء، اختر المهنة والعامل المناسب، ثم أرسل طلب الخدمة.
@@ -1746,12 +1402,9 @@ footer a{
 
 </details>
 
-
 <details>
 
-<summary>
-متى أستطيع التواصل مع العامل؟
-</summary>
+<summary>متى أستطيع التواصل مع العامل؟</summary>
 
 <p>
 بحسب نظام المنصة، تظهر معلومات التواصل بعد قبول العامل للطلب.
@@ -1759,12 +1412,9 @@ footer a{
 
 </details>
 
-
 <details>
 
-<summary>
-هل أحتاج إلى حساب؟
-</summary>
+<summary>هل أحتاج إلى حساب؟</summary>
 
 <p>
 لاستخدام خدمات العملاء وطلبات الخدمة تحتاج إلى الدخول إلى حساب العميل.
@@ -1772,12 +1422,9 @@ footer a{
 
 </details>
 
-
 <details>
 
-<summary>
-هل العامل يستطيع استقبال أكثر من طلب؟
-</summary>
+<summary>هل العامل يستطيع استقبال أكثر من طلب؟</summary>
 
 <p>
 نظام المنصة يمكنه تنظيم حالة العامل بحيث لا يتم إرسال طلبات جديدة
@@ -1786,12 +1433,9 @@ footer a{
 
 </details>
 
-
 <details>
 
-<summary>
-هل يمكن إلغاء الطلب؟
-</summary>
+<summary>هل يمكن إلغاء الطلب؟</summary>
 
 <p>
 يمكن إلغاء الطلب وفق الحالة والقواعد الموجودة في نظام المنصة.
@@ -1799,25 +1443,19 @@ footer a{
 
 </details>
 
-
 </div>
 
 </div>
 
 </section>
 
-
-<!-- =========================
-     CTA
-========================= -->
+<!-- CTA -->
 
 <section class="cta">
 
 <div class="container">
 
-<h2>
-تحتاج إلى عامل؟
-</h2>
+<h2>تحتاج إلى عامل؟</h2>
 
 <p>
 لا تضيع وقتك في البحث.
@@ -1830,6 +1468,11 @@ footer a{
 🚀 اطلب عامل الآن
 </a>
 
+<a href="تطبيق عامل دليفري.apk"
+class="btn btn-android"
+download>
+📱 تحميل التطبيق </a>
+
 <a href="login.php" class="btn btn-light">
 🔐 تسجيل الدخول
 </a>
@@ -1840,16 +1483,7 @@ footer a{
 
 </section>
 
-
-<!-- =========================
-     WHATSAPP
-========================= -->
-
-<!--
-غيّر الرقم التالي إلى رقم واتساب المنصة.
-مثال ليبيا:
-2189XXXXXXXX
--->
+<!-- WHATSAPP -->
 
 <a
 class="whatsapp"
@@ -1861,10 +1495,7 @@ title="تواصل معنا عبر واتساب">
 
 </a>
 
-
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- FOOTER -->
 
 <footer>
 
@@ -1874,9 +1505,7 @@ title="تواصل معنا عبر واتساب">
 
 <div>
 
-<strong>
-عامل دليفري
-</strong>
+<strong>عامل دليفري</strong>
 
 <p>
 أقرب لك وأسرع في خدمتك.
@@ -1884,17 +1513,18 @@ title="تواصل معنا عبر واتساب">
 
 </div>
 
-
 <div>
 
-<strong>
-روابط سريعة
-</strong>
+<strong>روابط سريعة</strong>
 
 <p>
 
 <a href="customer.php">
 اطلب عامل
+</a>
+
+<a href="#download">
+تحميل التطبيق
 </a>
 
 <a href="login.php">
@@ -1910,7 +1540,6 @@ title="تواصل معنا عبر واتساب">
 </div>
 
 </div>
-
 
 <div class="copyright">
 
