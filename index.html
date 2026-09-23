@@ -8,7 +8,7 @@
 <title>عامل دليفري | أقرب لك وأسرع في خدمتك</title>
 
 <meta name="description"
-content="عامل دليفري منصة تساعدك على الوصول إلى أصحاب المهن والخدمات بسهولة وسرعة.">
+content="عامل دليفري - منصة للوصول إلى أصحاب المهن والخدمات بسهولة وسرعة في طبرق.">
 
 <meta name="theme-color" content="#ff7900">
 
@@ -26,9 +26,9 @@ html{
 
 body{
     font-family:Tahoma,Arial,sans-serif;
-    background:#f7f8fa;
-    color:#172231;
-    line-height:1.8;
+    background:#f6f8fa;
+    color:#101c29;
+    line-height:1.7;
 }
 
 a{
@@ -36,30 +36,26 @@ a{
     color:inherit;
 }
 
-button{
-    font-family:inherit;
-}
-
 .container{
     width:92%;
-    max-width:1150px;
+    max-width:1050px;
     margin:auto;
 }
 
 /* =========================
-   NAVBAR
+   HEADER
 ========================= */
 
-.navbar{
+header{
+    background:rgba(255,255,255,.96);
+    border-bottom:1px solid #e9edf1;
     position:sticky;
     top:0;
     z-index:1000;
-    background:rgba(255,255,255,.95);
-    backdrop-filter:blur(15px);
-    border-bottom:1px solid #eee;
+    backdrop-filter:blur(12px);
 }
 
-.navbar-inner{
+.header{
     min-height:72px;
     display:flex;
     align-items:center;
@@ -71,35 +67,35 @@ button{
     display:flex;
     align-items:center;
     gap:10px;
+    font-size:20px;
     font-weight:900;
-    font-size:19px;
 }
 
 .logo img{
-    width:52px;
-    height:52px;
+    width:48px;
+    height:48px;
     object-fit:contain;
 }
 
-.nav-buttons{
+.header-buttons{
     display:flex;
-    align-items:center;
     gap:8px;
 }
 
-.nav-buttons a{
+.header-buttons a{
     padding:10px 15px;
     border-radius:12px;
-    font-weight:800;
+    font-weight:900;
+    font-size:14px;
 }
 
 .login{
-    background:#f1f3f5;
+    background:#f0f2f4;
 }
 
-.request{
+.main-btn{
     background:#ff7900;
-    color:#fff;
+    color:white;
 }
 
 /* =========================
@@ -107,90 +103,72 @@ button{
 ========================= */
 
 .hero{
-    position:relative;
-    overflow:hidden;
-    background:linear-gradient(135deg,#ffffff,#fff3e5);
-    padding:65px 0 75px;
+    padding:65px 0;
+    background:
+        radial-gradient(circle at 10% 20%,rgba(255,121,0,.09),transparent 30%),
+        radial-gradient(circle at 90% 80%,rgba(255,121,0,.07),transparent 30%),
+        linear-gradient(135deg,#ffffff,#fff6ec);
 }
 
-.hero::before{
-    content:"";
-    position:absolute;
-    width:350px;
-    height:350px;
-    background:#ff7900;
-    opacity:.06;
-    border-radius:50%;
-    left:-130px;
-    top:30px;
+.hero-content{
+    text-align:center;
+    max-width:800px;
+    margin:auto;
 }
 
-.hero::after{
-    content:"";
-    position:absolute;
-    width:280px;
-    height:280px;
-    background:#ff7900;
-    opacity:.05;
-    border-radius:50%;
-    right:-100px;
-    bottom:-80px;
-}
-
-.hero-grid{
-    position:relative;
-    z-index:2;
-    display:grid;
-    grid-template-columns:1.1fr .9fr;
-    align-items:center;
-    gap:45px;
+.hero-logo{
+    width:150px;
+    height:150px;
+    object-fit:contain;
+    margin-bottom:20px;
+    filter:drop-shadow(0 15px 25px rgba(0,0,0,.12));
 }
 
 .badge{
     display:inline-block;
-    background:#fff0df;
-    color:#dc6500;
-    border:1px solid #ffd5ac;
-    border-radius:50px;
     padding:7px 15px;
+    background:#fff0df;
+    color:#db6500;
+    border:1px solid #ffd6b0;
+    border-radius:30px;
+    font-size:14px;
     font-weight:900;
     margin-bottom:15px;
 }
 
-.hero h1{
-    font-size:clamp(40px,6vw,68px);
-    line-height:1.1;
+h1{
+    font-size:clamp(38px,7vw,65px);
+    line-height:1.15;
     color:#07111d;
-    margin-bottom:20px;
+    margin-bottom:15px;
 }
 
-.hero h1 span{
+h1 span{
     color:#ff7900;
 }
 
-.hero-text{
-    font-size:19px;
-    color:#687586;
+.hero p{
+    color:#667586;
+    font-size:18px;
     max-width:680px;
-    margin-bottom:25px;
+    margin:0 auto 25px;
 }
 
-.hero-buttons{
+.buttons{
     display:flex;
+    justify-content:center;
     flex-wrap:wrap;
     gap:10px;
 }
 
 .btn{
-    border:0;
-    padding:14px 21px;
-    border-radius:15px;
-    font-weight:900;
     display:inline-flex;
     align-items:center;
     justify-content:center;
     gap:8px;
-    cursor:pointer;
+    padding:14px 22px;
+    border-radius:14px;
+    font-weight:900;
     transition:.2s;
 }
 
@@ -198,377 +176,159 @@ button{
     transform:translateY(-2px);
 }
 
-.btn-main{
+.btn-orange{
     background:#ff7900;
-    color:white;
+    color:#fff;
     box-shadow:0 10px 25px rgba(255,121,0,.25);
 }
 
 .btn-dark{
     background:#07111d;
-    color:white;
+    color:#fff;
 }
 
-.btn-light{
-    background:white;
+.btn-green{
+    background:#34a853;
+    color:#fff;
+    box-shadow:0 10px 25px rgba(52,168,83,.2);
+}
+
+.btn-white{
+    background:#fff;
     border:1px solid #ddd;
 }
 
-.btn-android{
-    background:#34a853;
-    color:#fff;
-    box-shadow:0 10px 25px rgba(52,168,83,.22);
-}
-
-.hero-logo{
-    display:flex;
-    justify-content:center;
-}
-
-.hero-logo img{
-    width:min(430px,100%);
-    filter:drop-shadow(0 25px 30px rgba(0,0,0,.15));
-}
-
 /* =========================
-   SECTIONS
+   INFO
 ========================= */
 
-section{
-    padding:75px 0;
+.info{
+    padding:55px 0;
+    background:#fff;
 }
 
-.section-title{
+.title{
     text-align:center;
-    max-width:760px;
-    margin:0 auto 40px;
+    margin-bottom:30px;
 }
 
-.section-title small{
+.title small{
     color:#ff7900;
     font-weight:900;
-    font-size:16px;
 }
 
-.section-title h2{
-    color:#07111d;
-    font-size:clamp(29px,4vw,44px);
-    margin:5px 0 10px;
+.title h2{
+    font-size:32px;
+    margin:5px 0;
 }
 
-.section-title p{
+.title p{
     color:#687586;
 }
 
-/* =========================
-   ABOUT
-========================= */
-
-.about{
-    background:white;
-}
-
-.about-grid{
+.cards{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:18px;
+    gap:16px;
 }
 
-.info-card{
+.card{
     background:#fff;
-    border:1px solid #e8ecf0;
-    border-radius:23px;
+    border:1px solid #e7ebef;
+    border-radius:22px;
     padding:25px;
-    box-shadow:0 10px 30px rgba(7,17,29,.05);
-    transition:.2s;
-}
-
-.info-card:hover{
-    transform:translateY(-5px);
+    text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,.04);
 }
 
 .icon{
-    width:60px;
-    height:60px;
+    width:58px;
+    height:58px;
     display:grid;
     place-items:center;
     background:#fff0df;
-    border-radius:17px;
-    font-size:29px;
-    margin-bottom:15px;
+    border-radius:16px;
+    font-size:28px;
+    margin:0 auto 12px;
 }
 
-.info-card h3{
-    margin-bottom:8px;
-    color:#07111d;
-}
-
-.info-card p{
-    color:#687586;
-}
-
-/* =========================
-   HOW IT WORKS
-========================= */
-
-.how{
-    background:#07111d;
-    color:white;
-}
-
-.how .section-title h2{
-    color:white;
-}
-
-.how .section-title p{
-    color:#b8c4cf;
-}
-
-.steps{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-}
-
-.step{
-    background:#102235;
-    border:1px solid #1d3449;
-    border-radius:22px;
-    padding:24px;
-}
-
-.step-number{
-    width:45px;
-    height:45px;
-    display:grid;
-    place-items:center;
-    background:#ff7900;
-    color:white;
-    border-radius:50%;
-    font-weight:900;
-    font-size:18px;
-    margin-bottom:15px;
-}
-
-.step h3{
+.card h3{
     margin-bottom:7px;
 }
 
-.step p{
-    color:#b7c3ce;
+.card p{
+    color:#687586;
+    font-size:15px;
 }
 
 /* =========================
-   CUSTOMER GUIDE
+   APP
 ========================= */
 
-.guide-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
-}
-
-.guide{
-    background:white;
-    border:1px solid #e8ecf0;
-    border-radius:25px;
-    padding:28px;
-    box-shadow:0 10px 30px rgba(0,0,0,.04);
-}
-
-.guide-number{
-    display:inline-grid;
-    place-items:center;
-    width:50px;
-    height:50px;
-    border-radius:15px;
-    background:#fff0df;
-    color:#ff7900;
-    font-size:23px;
-    margin-bottom:12px;
-}
-
-.guide h3{
-    margin-bottom:10px;
-}
-
-.guide p{
-    color:#687586;
-}
-
-.guide ul{
-    margin-top:15px;
-    padding-right:20px;
-    color:#687586;
-}
-
-.guide li{
-    margin-bottom:8px;
-}
-
-/* =========================
-   PROFESSIONS
-========================= */
-
-.professions{
+.app{
+    padding:55px 0;
     background:#fff7ef;
 }
 
-.profession-grid{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:14px;
-}
-
-.profession{
-    background:white;
-    border-radius:20px;
-    padding:20px;
-    text-align:center;
-    border:1px solid #ffe2c4;
-    transition:.2s;
-}
-
-.profession:hover{
-    transform:translateY(-4px);
-}
-
-.profession-icon{
-    font-size:38px;
-    margin-bottom:7px;
-}
-
-.profession strong{
-    display:block;
-}
-
-/* =========================
-   STATUS
-========================= */
-
-.status-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-}
-
-.status{
-    background:white;
-    border:1px solid #e8ecf0;
-    border-radius:20px;
-    padding:22px;
-}
-
-.status-icon{
-    font-size:35px;
-    margin-bottom:8px;
-}
-
-.status h3{
-    margin-bottom:5px;
-}
-
-.status p{
-    color:#687586;
-}
-
-/* =========================
-   APP DOWNLOAD
-========================= */
-
-.app-section{
-    background:linear-gradient(135deg,#fff2e3,#ffffff);
-}
-
 .app-box{
-    border:1px solid #ffd5aa;
-    border-radius:30px;
-    padding:40px;
-    display:grid;
-    grid-template-columns:1fr auto;
-    align-items:center;
-    gap:30px;
+    max-width:850px;
+    margin:auto;
+    background:#07111d;
+    color:#fff;
+    border-radius:28px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 18px 40px rgba(7,17,29,.15);
+}
+
+.app-icon{
+    font-size:55px;
+    margin-bottom:5px;
 }
 
 .app-box h2{
-    font-size:35px;
-    color:#07111d;
-    margin-bottom:8px;
+    font-size:30px;
+    margin-bottom:7px;
 }
 
 .app-box p{
-    color:#687586;
-    margin-bottom:18px;
+    color:#bdc8d2;
+    margin-bottom:20px;
 }
 
-.app-buttons{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-}
-
-.download-card{
-    background:#07111d;
-    color:white;
-    border-radius:25px;
-    padding:25px;
-    text-align:center;
-    min-width:250px;
-    box-shadow:0 15px 35px rgba(7,17,29,.18);
-}
-
-.download-card .phone-icon{
-    font-size:58px;
-    margin-bottom:5px;
-}
-
-.download-card h3{
-    margin-bottom:5px;
-}
-
-.download-card p{
-    color:#b8c4cf;
-    font-size:14px;
-    margin-bottom:15px;
-}
-
-.download-card a{
-    width:100%;
-}
-
-.apk-name{
+.apk-note{
     display:block;
-    margin-top:12px;
+    color:#8997a5;
     font-size:12px;
-    color:#9eacb9;
-    word-break:break-word;
+    margin-top:12px;
 }
 
 /* =========================
-   FAQ
+   LOCATION
 ========================= */
 
-.faq{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:14px;
+.location{
+    padding:45px 0;
+    background:#fff;
+    text-align:center;
 }
 
-details{
-    background:white;
-    border:1px solid #e7ebef;
-    border-radius:17px;
-    padding:17px;
+.location-box{
+    max-width:700px;
+    margin:auto;
 }
 
-summary{
-    cursor:pointer;
-    font-weight:900;
+.location-icon{
+    font-size:42px;
+    margin-bottom:5px;
 }
 
-details p{
+.location h2{
+    margin-bottom:7px;
+}
+
+.location p{
     color:#687586;
-    margin-top:10px;
 }
 
 /* =========================
@@ -576,20 +336,20 @@ details p{
 ========================= */
 
 .cta{
+    padding:55px 0;
     background:#07111d;
-    color:white;
+    color:#fff;
     text-align:center;
 }
 
 .cta h2{
-    font-size:clamp(30px,5vw,48px);
-    margin-bottom:10px;
+    font-size:35px;
+    margin-bottom:8px;
 }
 
 .cta p{
-    color:#bac5cf;
-    max-width:700px;
-    margin:0 auto 25px;
+    color:#bbc6d0;
+    margin-bottom:22px;
 }
 
 /* =========================
@@ -598,16 +358,16 @@ details p{
 
 .whatsapp{
     position:fixed;
-    bottom:20px;
-    left:20px;
-    width:58px;
-    height:58px;
-    background:#25d366;
-    color:white;
+    left:18px;
+    bottom:18px;
+    width:55px;
+    height:55px;
     border-radius:50%;
+    background:#25d366;
+    color:#fff;
     display:grid;
     place-items:center;
-    font-size:28px;
+    font-size:27px;
     z-index:999;
     box-shadow:0 8px 25px rgba(0,0,0,.2);
 }
@@ -618,29 +378,18 @@ details p{
 
 footer{
     background:#050d15;
-    color:#c3ced8;
-    padding:40px 0 20px;
-}
-
-.footer-grid{
-    display:flex;
-    justify-content:space-between;
-    gap:30px;
-    flex-wrap:wrap;
+    color:#aebbc7;
+    text-align:center;
+    padding:28px 15px;
 }
 
 footer strong{
-    color:white;
+    color:#fff;
+    font-size:18px;
 }
 
-footer a{
-    margin-left:15px;
-}
-
-.copyright{
-    text-align:center;
-    margin-top:25px;
-    color:#788796;
+footer p{
+    margin-top:5px;
     font-size:13px;
 }
 
@@ -648,126 +397,65 @@ footer a{
    MOBILE
 ========================= */
 
-@media(max-width:900px){
+@media(max-width:700px){
 
-    .hero-grid{
-        grid-template-columns:1fr;
-        text-align:center;
-    }
-
-    .hero-text{
-        margin-left:auto;
-        margin-right:auto;
-    }
-
-    .hero-buttons{
-        justify-content:center;
-    }
-
-    .hero-logo{
-        order:-1;
-    }
-
-    .hero-logo img{
-        max-width:330px;
-    }
-
-    .about-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .steps{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .profession-grid{
-        grid-template-columns:repeat(3,1fr);
-    }
-
-    .status-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .app-box{
-        grid-template-columns:1fr;
-        text-align:center;
-    }
-
-    .app-buttons{
-        justify-content:center;
-    }
-
-    .download-card{
-        max-width:360px;
-        margin:auto;
-    }
-}
-
-@media(max-width:600px){
-
-    .navbar-inner{
-        min-height:64px;
+    .header{
+        min-height:65px;
     }
 
     .logo img{
-        width:43px;
-        height:43px;
+        width:42px;
+        height:42px;
     }
 
     .logo span{
         font-size:16px;
     }
 
-    .nav-buttons .login{
-        display:none;
-    }
-
-    .nav-buttons a{
-        padding:9px 11px;
+    .header-buttons a{
+        padding:8px 10px;
         font-size:12px;
     }
 
-    .hero{
-        padding:40px 0 55px;
+    .header-buttons .login{
+        display:none;
     }
 
-    .hero h1{
+    .hero{
+        padding:45px 0 50px;
+    }
+
+    .hero-logo{
+        width:120px;
+        height:120px;
+    }
+
+    h1{
         font-size:42px;
     }
 
-    section{
-        padding:55px 0;
+    .hero p{
+        font-size:16px;
     }
 
-    .about-grid,
-    .guide-grid,
-    .steps,
-    .faq,
-    .status-grid{
-        grid-template-columns:1fr;
+    .buttons{
+        flex-direction:column;
     }
 
-    .profession-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .app-box{
-        padding:27px 20px;
-    }
-
-    .app-box h2{
-        font-size:28px;
-    }
-
-    .app-buttons .btn{
+    .btn{
         width:100%;
     }
 
-    .whatsapp{
-        width:52px;
-        height:52px;
-        bottom:15px;
-        left:15px;
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .app-box{
+        padding:28px 20px;
+    }
+
+    .app-box h2{
+        font-size:26px;
     }
 
 }
@@ -779,12 +467,12 @@ footer a{
 <body>
 
 <!-- =========================
-     NAVBAR
+     HEADER
 ========================= -->
 
-<header class="navbar">
+<header>
 
-<div class="container navbar-inner">
+<div class="container header">
 
 <a href="https://working.gt.tc/" class="logo">
 
@@ -794,15 +482,17 @@ footer a{
 
 </a>
 
-<div class="nav-buttons">
+<div class="header-buttons">
 
-<a href="https://working.gt.tc/" class="login">
-🔐 تسجيل الدخول
-</a>
+<a
+href="https://working.gt.tc/"
+class="login">
+🔐 تسجيل الدخول </a>
 
-<a href="https://working.gt.tc/" class="request">
-🚀 اطلب عامل الآن
-</a>
+<a
+href="https://working.gt.tc/"
+class="main-btn">
+🚀 اطلب عامل </a>
 
 </div>
 
@@ -816,50 +506,45 @@ footer a{
 
 <section class="hero">
 
-<div class="container hero-grid">
+<div class="container hero-content">
 
-<div>
+<img
+src="logo.png"
+alt="عامل دليفري"
+class="hero-logo">
 
 <div class="badge">
-🛠️ منصة عامل دليفري
+🛠️ منصة الخدمات والمهن
 </div>
 
 <h1>
-أقرب لك
+عامل دليفري
 <br>
-<span>وأسرع في خدمتك</span>
+<span>أقرب لك وأسرع في خدمتك</span>
 </h1>
 
-<p class="hero-text">
-
-عامل دليفري هي منصة تهدف إلى تقريب أصحاب المهن والخدمات
-من الأشخاص الذين يحتاجون إلى خدماتهم بطريقة سهلة ومنظمة.
-بدلاً من البحث الطويل، يمكنك الوصول إلى الخدمة التي تحتاجها
-من خلال خطوات بسيطة من هاتفك.
-
+<p>
+منصة تساعدك على الوصول إلى أصحاب المهن والخدمات
+بسهولة وسرعة، واختيار العامل المناسب لاحتياجك.
 </p>
 
-<div class="hero-buttons">
+<div class="buttons">
 
-<a href="https://working.gt.tc/" class="btn btn-main">
-🚀 اطلب عامل الآن
-</a>
+<a
+href="https://working.gt.tc/"
+class="btn btn-orange">
+🚀 اطلب عامل الآن </a>
 
-<a href="https://working.gt.tc/" class="btn btn-dark">
-🔐 تسجيل الدخول
-</a>
+<a
+href="https://working.gt.tc/"
+class="btn btn-dark">
+🔐 تسجيل الدخول </a>
 
-<a href="#how" class="btn btn-light">
-📖 كيف تعمل المنصة؟
-</a>
-
-</div>
-
-</div>
-
-<div class="hero-logo">
-
-<img src="logo.png" alt="عامل دليفري">
+<a
+href="عامل دليفري.apk"
+download="عامل دليفري.apk"
+class="btn btn-green">
+📱 تحميل تطبيق Android </a>
 
 </div>
 
@@ -868,477 +553,59 @@ footer a{
 </section>
 
 <!-- =========================
-     ABOUT
+     INFO
 ========================= -->
 
-<section class="about">
+<section class="info">
 
 <div class="container">
 
-<div class="section-title">
+<div class="title">
 
-<small>عن المشروع</small>
+<small>عن المنصة</small>
 
-<h2>ما هي منصة عامل دليفري؟</h2>
+<h2>خدمة بسيطة وسهلة</h2>
 
 <p>
-منصة إلكترونية تساعد الزائر على الوصول إلى أصحاب المهن
-والخدمات المتاحة بطريقة أبسط وأكثر تنظيماً.
+كل ما تحتاجه للوصول إلى العامل المناسب في مكان واحد.
 </p>
 
 </div>
 
-<div class="about-grid">
+<div class="cards">
 
-<div class="info-card">
-
-<div class="icon">🤝</div>
-
-<h3>تقريب العامل من العميل</h3>
-
-<p>
-الفكرة الأساسية للمنصة هي تسهيل الوصول إلى العامل المناسب
-عندما يحتاج العميل إلى خدمة معينة.
-</p>
-
-</div>
-
-<div class="info-card">
-
-<div class="icon">📱</div>
-
-<h3>استخدام سهل من الهاتف</h3>
-
-<p>
-تم تصميم المنصة لتعمل على الهاتف والكمبيوتر،
-مع واجهة بسيطة وواضحة للزوار والعملاء.
-</p>
-
-</div>
-
-<div class="info-card">
-
-<div class="icon">⚡</div>
-
-<h3>طلب الخدمة بسهولة</h3>
-
-<p>
-يستطيع العميل اختيار المهنة وإرسال طلبه ومتابعة
-حالة الطلب من خلال حسابه.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =========================
-     HOW
-========================= -->
-
-<section class="how" id="how">
-
-<div class="container">
-
-<div class="section-title">
-
-<small>طريقة عمل المنصة</small>
-
-<h2>كيف تعمل عامل دليفري؟</h2>
-
-<p>
-تمر عملية طلب الخدمة بعدة خطوات بسيطة.
-</p>
-
-</div>
-
-<div class="steps">
-
-<div class="step">
-
-<div class="step-number">1</div>
-
-<h3>الدخول إلى المنصة</h3>
-
-<p>
-يدخل الزائر إلى الموقع ثم يختار الخدمة التي يحتاج إليها.
-</p>
-
-</div>
-
-<div class="step">
-
-<div class="step-number">2</div>
-
-<h3>اختيار المهنة</h3>
-
-<p>
-يختار العميل نوع العامل المطلوب مثل كهربائي أو سباك أو غيره.
-</p>
-
-</div>
-
-<div class="step">
-
-<div class="step-number">3</div>
-
-<h3>إرسال الطلب</h3>
-
-<p>
-يتم إرسال طلب الخدمة إلى العامل المناسب والمتاح.
-</p>
-
-</div>
-
-<div class="step">
-
-<div class="step-number">4</div>
-
-<h3>قبول الطلب</h3>
-
-<p>
-عند قبول العامل للطلب يستطيع العميل التواصل معه وإتمام الخدمة.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =========================
-     CUSTOMER GUIDE
-========================= -->
-
-<section>
-
-<div class="container">
-
-<div class="section-title">
-
-<small>إرشادات العميل</small>
-
-<h2>طريقة استعمال المنصة للزائر</h2>
-
-<p>
-إذا كنت تستخدم عامل دليفري لأول مرة، اتبع هذه الخطوات.
-</p>
-
-</div>
-
-<div class="guide-grid">
-
-<div class="guide">
-
-<div class="guide-number">1</div>
-
-<h3>إنشاء حساب عميل</h3>
-
-<p>
-اضغط على تسجيل الدخول، ثم أنشئ حسابك كعميل باستخدام
-البيانات المطلوبة في المنصة.
-</p>
-
-<ul>
-
-<li>استخدم بيانات صحيحة.</li>
-
-<li>احتفظ بكلمة المرور.</li>
-
-<li>يمكنك الدخول إلى حسابك لاحقاً لمتابعة طلباتك.</li>
-
-</ul>
-
-</div>
-
-<div class="guide">
-
-<div class="guide-number">2</div>
-
-<h3>اختيار العامل</h3>
-
-<p>
-بعد الدخول إلى منصة العملاء ستظهر لك المهن والخدمات المتاحة.
-</p>
-
-<ul>
-
-<li>اختر المهنة المطلوبة.</li>
-
-<li>راجع العامل المتاح.</li>
-
-<li>اضغط على زر طلب العامل.</li>
-
-</ul>
-
-</div>
-
-<div class="guide">
-
-<div class="guide-number">3</div>
-
-<h3>متابعة الطلب</h3>
-
-<p>
-بعد إرسال الطلب تستطيع متابعة حالته من صفحة طلباتك.
-</p>
-
-<ul>
-
-<li>قيد الانتظار.</li>
-
-<li>تم قبول الطلب.</li>
-
-<li>تم إكمال الخدمة أو إلغاء الطلب.</li>
-
-</ul>
-
-</div>
-
-<div class="guide">
-
-<div class="guide-number">4</div>
-
-<h3>التواصل مع العامل</h3>
-
-<p>
-عند قبول العامل للطلب تظهر وسيلة التواصل حسب نظام المنصة.
-</p>
-
-<ul>
-
-<li>نسّق معه تفاصيل الخدمة.</li>
-
-<li>اتفق على مكان الخدمة.</li>
-
-<li>بعد انتهاء الخدمة يتم تحديث حالة الطلب.</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =========================
-     PROFESSIONS
-========================= -->
-
-<section class="professions">
-
-<div class="container">
-
-<div class="section-title">
-
-<small>الخدمات</small>
-
-<h2>أصحاب المهن والخدمات</h2>
-
-<p>
-يمكن للمنصة عرض مجموعة مختلفة من أصحاب المهن حسب الخدمات
-المتوفرة في المدينة.
-</p>
-
-</div>
-
-<div class="profession-grid">
-
-<div class="profession">
-<div class="profession-icon">⚡</div>
-<strong>كهربائي</strong>
-</div>
-
-<div class="profession">
-<div class="profession-icon">🚰</div>
-<strong>سباك</strong>
-</div>
-
-<div class="profession">
-<div class="profession-icon">🎨</div>
-<strong>دهان</strong>
-</div>
-
-<div class="profession">
-<div class="profession-icon">🧱</div>
-<strong>بناء</strong>
-</div>
-
-<div class="profession">
-<div class="profession-icon">🔧</div>
-<strong>ميكانيكي</strong>
-</div>
-
-<div class="profession">
-<div class="profession-icon">🪚</div>
-<strong>نجار</strong>
-</div>
-
-<div class="profession">
-<div class="profession-icon">❄️</div>
-<strong>تكييف وتبريد</strong>
-</div>
-
-<div class="profession">
-<div class="profession-icon">🧹</div>
-<strong>خدمات منزلية</strong>
-</div>
-
-<div class="profession">
-<div class="profession-icon">🔩</div>
-<strong>صيانة</strong>
-</div>
-
-<div class="profession">
-<div class="profession-icon">➕</div>
-<strong>خدمات أخرى</strong>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =========================
-     STATUS
-========================= -->
-
-<section>
-
-<div class="container">
-
-<div class="section-title">
-
-<small>متابعة الطلب</small>
-
-<h2>ماذا يحدث بعد إرسال الطلب؟</h2>
-
-<p>
-يمكن للعميل معرفة المرحلة التي وصل إليها طلبه.
-</p>
-
-</div>
-
-<div class="status-grid">
-
-<div class="status">
-
-<div class="status-icon">⏳</div>
-
-<h3>قيد الانتظار</h3>
-
-<p>
-تم إرسال الطلب وينتظر رد العامل.
-</p>
-
-</div>
-
-<div class="status">
-
-<div class="status-icon">✅</div>
-
-<h3>تم القبول</h3>
-
-<p>
-قام العامل بقبول الطلب ويمكن بدء التواصل معه.
-</p>
-
-</div>
-
-<div class="status">
-
-<div class="status-icon">🏁</div>
-
-<h3>تم الإنجاز</h3>
-
-<p>
-تم الانتهاء من الخدمة وإغلاق الطلب.
-</p>
-
-</div>
-
-<div class="status">
-
-<div class="status-icon">❌</div>
-
-<h3>ملغي</h3>
-
-<p>
-تم إلغاء الطلب ولن يبقى ضمن الطلبات النشطة.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =========================
-     WORKER GUIDE
-========================= -->
-
-<section class="about">
-
-<div class="container">
-
-<div class="section-title">
-
-<small>إرشادات العامل</small>
-
-<h2>كيف يعمل العامل داخل المنصة؟</h2>
-
-<p>
-العامل يتعامل مع الطلبات الموجهة إليه من خلال حسابه.
-</p>
-
-</div>
-
-<div class="about-grid">
-
-<div class="info-card">
+<div class="card">
 
 <div class="icon">👷</div>
 
-<h3>استقبال الطلب</h3>
+<h3>أصحاب المهن</h3>
 
 <p>
-عندما يرسل العميل طلباً مناسباً للعامل، يظهر الطلب في حساب العامل.
+الوصول إلى مجموعة من أصحاب المهن والخدمات المتاحة عبر المنصة.
 </p>
 
 </div>
 
-<div class="info-card">
+<div class="card">
 
-<div class="icon">✅</div>
+<div class="icon">📱</div>
 
-<h3>قبول أو رفض</h3>
+<h3>من هاتفك</h3>
 
 <p>
-يمكن للعامل مراجعة الطلب ثم قبوله إذا كان يستطيع تنفيذ الخدمة،
-أو رفضه عند عدم توفره.
+استخدم المنصة من الهاتف أو الكمبيوتر، أو حمّل تطبيق Android.
 </p>
 
 </div>
 
-<div class="info-card">
+<div class="card">
 
-<div class="icon">📞</div>
+<div class="icon">⚡</div>
 
-<h3>التواصل مع العميل</h3>
+<h3>بخطوات بسيطة</h3>
 
 <p>
-بعد قبول الطلب تصبح معلومات التواصل متاحة حسب قواعد المنصة
-لإتمام تنسيق الخدمة.
+اختر المهنة، اختر العامل المتاح، ثم أرسل طلب الخدمة.
 </p>
 
 </div>
@@ -1353,77 +620,43 @@ footer a{
      APP DOWNLOAD
 ========================= -->
 
-<section class="app-section" id="download">
+<section class="app">
 
 <div class="container">
 
-<div class="section-title">
-
-<small>تطبيق عامل دليفري</small>
-
-<h2>حمّل تطبيق عامل دليفري على هاتفك</h2>
-
-<p>
-يمكنك استخدام المنصة من الموقع مباشرة، أو تحميل تطبيق Android
-وتثبيته على هاتفك للوصول إلى خدمات عامل دليفري بسهولة.
-</p>
-
-</div>
-
 <div class="app-box">
 
-<div>
-
-<h2>📱 تطبيق عامل دليفري</h2>
-
-<p>
-تطبيق Android متاح الآن للتحميل مباشرة من موقعنا.
-اضغط على زر التحميل لتنزيل ملف التطبيق على هاتفك.
-</p>
-
-<div class="app-buttons">
-
-<a href="عامل دليفري.apk"
-class="btn btn-android"
-download="عامل دليفري.apk">
-🤖 تحميل تطبيق Android </a>
-
-<a href="https://working.gt.tc/"
-class="btn btn-main">
-🚀 فتح المنصة </a>
-
-<a href="#how"
-class="btn btn-light">
-📖 طريقة الاستخدام </a>
-
-</div>
-
-</div>
-
-<div class="download-card">
-
-<div class="phone-icon">
+<div class="app-icon">
 📲
 </div>
 
-<h3>
+<h2>
 تطبيق عامل دليفري
-</h3>
+</h2>
 
 <p>
-متاح الآن لأجهزة Android
+حمّل تطبيق Android للوصول إلى منصة عامل دليفري
+بسهولة من هاتفك.
 </p>
 
-<a href="عامل دليفري.apk"
-class="btn btn-android"
-download="عامل دليفري.apk">
-⬇️ تحميل APK </a>
+<div class="buttons">
 
-<span class="apk-name">
-اسم الملف: عامل دليفري.apk
-</span>
+<a
+href="عامل دليفري.apk"
+download="عامل دليفري.apk"
+class="btn btn-green">
+⬇️ تحميل التطبيق </a>
+
+<a
+href="https://working.gt.tc/"
+class="btn btn-orange">
+🌐 فتح المنصة </a>
 
 </div>
+
+<span class="apk-note">
+ملف التطبيق: عامل دليفري.apk
+</span>
 
 </div>
 
@@ -1432,96 +665,27 @@ download="عامل دليفري.apk">
 </section>
 
 <!-- =========================
-     FAQ
+     LOCATION
 ========================= -->
 
-<section>
+<section class="location">
 
 <div class="container">
 
-<div class="section-title">
+<div class="location-box">
 
-<small>الأسئلة الشائعة</small>
-
-<h2>أسئلة قد تهمك</h2>
-
+<div class="location-icon">
+📍
 </div>
 
-<div class="faq">
-
-<details>
-
-<summary>
-ما هي فكرة عامل دليفري؟
-</summary>
+<h2>
+عامل دليفري في طبرق
+</h2>
 
 <p>
-هي منصة إلكترونية تهدف إلى تسهيل وصول العملاء إلى أصحاب المهن
-والخدمات المتاحة في المنصة.
+نبدأ بخدمة مدينة طبرق، ونسعى إلى تطوير المنصة
+وتوسيع نطاق الخدمات مستقبلاً لتشمل مدناً أخرى.
 </p>
-
-</details>
-
-<details>
-
-<summary>
-كيف أطلب عاملاً؟
-</summary>
-
-<p>
-ادخل إلى منصة العملاء، اختر المهنة والعامل المناسب، ثم أرسل طلب الخدمة.
-</p>
-
-</details>
-
-<details>
-
-<summary>
-متى أستطيع التواصل مع العامل؟
-</summary>
-
-<p>
-بحسب نظام المنصة، تظهر معلومات التواصل بعد قبول العامل للطلب.
-</p>
-
-</details>
-
-<details>
-
-<summary>
-هل أحتاج إلى حساب؟
-</summary>
-
-<p>
-لاستخدام خدمات العملاء وطلبات الخدمة تحتاج إلى الدخول إلى حساب العميل.
-</p>
-
-</details>
-
-<details>
-
-<summary>
-هل العامل يستطيع استقبال أكثر من طلب؟
-</summary>
-
-<p>
-نظام المنصة يمكنه تنظيم حالة العامل بحيث لا يتم إرسال طلبات جديدة
-إليه عندما يكون لديه طلب نشط.
-</p>
-
-</details>
-
-<details>
-
-<summary>
-هل يمكن إلغاء الطلب؟
-</summary>
-
-<p>
-يمكن إلغاء الطلب وفق الحالة والقواعد الموجودة في نظام المنصة.
-</p>
-
-</details>
 
 </div>
 
@@ -1542,24 +706,26 @@ download="عامل دليفري.apk">
 </h2>
 
 <p>
-لا تضيع وقتك في البحث.
-ادخل إلى المنصة أو حمّل تطبيق عامل دليفري وابدأ باستخدام الخدمة.
+ادخل إلى المنصة الآن وابدأ البحث عن الخدمة التي تحتاجها.
 </p>
 
-<div class="hero-buttons" style="justify-content:center">
+<div class="buttons">
 
-<a href="https://working.gt.tc/"
-class="btn btn-main">
+<a
+href="https://working.gt.tc/"
+class="btn btn-orange">
 🚀 اطلب عامل الآن </a>
 
-<a href="عامل دليفري.apk"
-class="btn btn-android"
-download="عامل دليفري.apk">
-📱 تحميل التطبيق </a>
-
-<a href="https://working.gt.tc/"
-class="btn btn-light">
+<a
+href="https://working.gt.tc/"
+class="btn btn-white">
 🔐 تسجيل الدخول </a>
+
+<a
+href="عامل دليفري.apk"
+download="عامل دليفري.apk"
+class="btn btn-green">
+📱 تحميل التطبيق </a>
 
 </div>
 
@@ -1572,10 +738,10 @@ class="btn btn-light">
 ========================= -->
 
 <a
-class="whatsapp"
 href="https://wa.me/218000000000"
 target="_blank"
 rel="noopener"
+class="whatsapp"
 title="تواصل معنا عبر واتساب">
 
 💬
@@ -1588,59 +754,17 @@ title="تواصل معنا عبر واتساب">
 
 <footer>
 
-<div class="container">
-
-<div class="footer-grid">
-
-<div>
-
 <strong>
 عامل دليفري
 </strong>
 
 <p>
-أقرب لك وأسرع في خدمتك.
+أقرب لك وأسرع في خدمتك
 </p>
-
-</div>
-
-<div>
-
-<strong>
-روابط سريعة
-</strong>
 
 <p>
-
-<a href="https://working.gt.tc/">
-اطلب عامل
-</a>
-
-<a href="#download">
-تحميل التطبيق
-</a>
-
-<a href="https://working.gt.tc/">
-تسجيل الدخول
-</a>
-
-<a href="#how">
-طريقة الاستخدام
-</a>
-
-</p>
-
-</div>
-
-</div>
-
-<div class="copyright">
-
 © 2026 عامل دليفري — جميع الحقوق محفوظة
-
-</div>
-
-</div>
+</p>
 
 </footer>
 
