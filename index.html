@@ -1,581 +1,198 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>عامل دليفري | التطبيق الرسمي</title>
-
-<meta name="description"
-content="عامل دليفري - التطبيق الرسمي للوصول إلى أصحاب المهن والخدمات في طبرق، ليبيا.">
-
-<meta name="theme-color" content="#ff7900">
-
-<style>
-
-/* =========================
-   RESET
-========================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    min-height:100vh;
-    font-family:Tahoma,Arial,sans-serif;
-    background:#f7f8fa;
-    color:#111827;
-    display:flex;
-    flex-direction:column;
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-/* =========================
-   HEADER
-========================= */
-
-header{
-    width:100%;
-    background:#ffffff;
-    border-bottom:1px solid #e5e7eb;
-}
-
-.header{
-    width:min(94%,1000px);
-    height:64px;
-    margin:auto;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:9px;
-    color:#111827;
-    font-size:19px;
-    font-weight:900;
-}
-
-.logo img{
-    width:38px;
-    height:38px;
-    object-fit:contain;
-}
-
-/* =========================
-   MAIN
-========================= */
-
-main{
-    flex:1;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:45px 15px;
-}
-
-.download-box{
-    width:100%;
-    max-width:560px;
-    text-align:center;
-}
-
-/* =========================
-   LOGO
-========================= */
-
-.main-logo{
-    display:block;
-    width:120px;
-    height:120px;
-    object-fit:contain;
-    margin:0 auto 18px;
-}
-
-/* =========================
-   BADGE
-========================= */
-
-.badge{
-    display:inline-block;
-    padding:7px 15px;
-    margin-bottom:14px;
-    border:1px solid #ffd9b8;
-    border-radius:30px;
-    background:#fff4e9;
-    color:#d96100;
-    font-size:12px;
-    font-weight:900;
-}
-
-/* =========================
-   TITLE
-========================= */
-
-h1{
-    color:#111827;
-    font-size:clamp(34px,7vw,48px);
-    line-height:1.25;
-    font-weight:900;
-    margin-bottom:13px;
-}
-
-h1 span{
-    color:#ff7900;
-    font-size:.62em;
-}
-
-/* =========================
-   DESCRIPTION
-========================= */
-
-.description{
-    max-width:510px;
-    margin:0 auto 25px;
-    color:#64748b;
-    font-size:15px;
-    line-height:1.9;
-}
-
-/* =========================
-   DOWNLOAD BUTTON
-========================= */
-
-.download-button{
-    width:min(100%,350px);
-    min-height:56px;
-    margin:0 auto;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    padding:14px 22px;
-    border-radius:13px;
-    background:#ff7900;
-    color:#ffffff;
-    font-size:16px;
-    font-weight:900;
-    box-shadow:0 8px 22px rgba(255,121,0,.20);
-    transition:
-        transform .2s ease,
-        background .2s ease,
-        box-shadow .2s ease;
-}
-
-.download-button:hover{
-    background:#e86e00;
-    transform:translateY(-2px);
-    box-shadow:0 11px 26px rgba(255,121,0,.25);
-}
-
-.download-button:active{
-    transform:translateY(0);
-}
-
-.download-icon{
-    width:24px;
-    height:24px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:21px;
-}
-
-/* =========================
-   APP INFORMATION
-========================= */
-
-.app-info{
-    margin:24px auto 0;
-    display:flex;
-    justify-content:center;
-    gap:8px;
-    flex-wrap:wrap;
-}
-
-.app-info-item{
-    padding:8px 13px;
-    background:#ffffff;
-    border:1px solid #e5e7eb;
-    border-radius:9px;
-    color:#64748b;
-    font-size:11px;
-    font-weight:700;
-}
-
-/* =========================
-   CONTACT CARD
-========================= */
-
-.contact-card{
-    width:100%;
-    max-width:430px;
-    margin:24px auto 0;
-    padding:17px;
-    background:#ffffff;
-    border:1px solid #e5e7eb;
-    border-radius:14px;
-}
-
-.contact-title{
-    margin-bottom:10px;
-    color:#111827;
-    font-size:13px;
-    font-weight:900;
-}
-
-.contact-item{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    min-height:35px;
-    padding:5px;
-    color:#475569;
-    font-size:12px;
-    font-weight:700;
-    border-radius:7px;
-    transition:.2s ease;
-}
-
-.contact-item:hover{
-    color:#ff7900;
-    background:#fff8f2;
-}
-
-.contact-icon{
-    font-size:15px;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    width:100%;
-    padding:20px 15px;
-    background:#111827;
-    text-align:center;
-}
-
-.footer-brand{
-    color:#ffffff;
-    font-size:15px;
-    font-weight:900;
-}
-
-.footer-owner{
-    margin-top:5px;
-    color:#cbd5e1;
-    font-size:12px;
-}
-
-.footer-location{
-    margin-top:4px;
-    color:#94a3b8;
-    font-size:11px;
-}
-
-.footer-copy{
-    margin-top:7px;
-    color:#64748b;
-    font-size:10px;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:480px){
-
-    .header{
-        height:60px;
-    }
-
-    .logo{
-        font-size:17px;
-    }
-
-    .logo img{
-        width:35px;
-        height:35px;
-    }
-
-    main{
-        padding:32px 15px;
-    }
-
-    .main-logo{
-        width:100px;
-        height:100px;
-        margin-bottom:15px;
-    }
-
-    .badge{
-        font-size:11px;
-        padding:6px 13px;
-    }
-
-    h1{
-        font-size:34px;
-    }
-
-    h1 span{
-        font-size:.58em;
-    }
-
-    .description{
-        font-size:14px;
-        line-height:1.85;
-        margin-bottom:21px;
-    }
-
-    .download-button{
-        width:100%;
-        min-height:55px;
-        font-size:15px;
-    }
-
-    .app-info{
-        margin-top:19px;
-    }
-
-    .contact-card{
-        margin-top:20px;
-        padding:14px;
-    }
-
-}
-
-/* =========================
-   VERY SMALL PHONES
-========================= */
-
-@media(max-width:350px){
-
-    h1{
-        font-size:30px;
-    }
-
-    .main-logo{
-        width:90px;
-        height:90px;
-    }
-
-    .description{
-        font-size:13px;
-    }
-
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>عامل دليفري | طبرق</title>
+
+    <meta name="description"
+          content="عامل دليفري - منصة الخدمات والعمال في طبرق">
+
+    <meta name="theme-color" content="#0b1f3a">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Tahoma, Arial, sans-serif;
+            background:
+                radial-gradient(circle at 50% 0%, rgba(218, 169, 53, 0.16), transparent 35%),
+                linear-gradient(145deg, #071525, #0b1f3a 55%, #06111f);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            overflow: hidden;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 430px;
+            text-align: center;
+        }
+
+        .card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 30px;
+            padding: 42px 28px 30px;
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 rgba(255,255,255,0.08);
+        }
+
+        .logo-box {
+            width: 145px;
+            height: 145px;
+            margin: 0 auto 25px;
+            border-radius: 34px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.28),
+                0 0 0 6px rgba(218, 169, 53, 0.10);
+        }
+
+        .logo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .location {
+            display: inline-block;
+            color: #d8b45a;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            margin-bottom: 13px;
+        }
+
+        h1 {
+            font-size: 31px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .description {
+            color: rgba(255,255,255,0.72);
+            font-size: 16px;
+            line-height: 1.9;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            width: 100%;
+            min-height: 58px;
+            border: none;
+            border-radius: 17px;
+            background: linear-gradient(135deg, #d8ad45, #b88927);
+            color: #071525;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 800;
+            box-shadow: 0 12px 30px rgba(216, 173, 69, 0.25);
+            transition: transform 0.2s ease,
+                        box-shadow 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 35px rgba(216, 173, 69, 0.35);
+        }
+
+        .button:active {
+            transform: translateY(0);
+        }
+
+        .line {
+            width: 55px;
+            height: 3px;
+            border-radius: 20px;
+            background: #d8ad45;
+            margin: 27px auto 20px;
+        }
+
+        .footer {
+            color: rgba(255,255,255,0.45);
+            font-size: 12px;
+        }
+
+        @media (max-width: 400px) {
+            .card {
+                padding: 34px 20px 25px;
+            }
+
+            .logo-box {
+                width: 125px;
+                height: 125px;
+            }
+
+            h1 {
+                font-size: 27px;
+            }
+        }
+    </style>
 </head>
-
 
 <body>
 
+    <main class="page">
 
-<!-- =========================
-     HEADER
-========================= -->
+        <section class="card">
 
-<header>
-
-    <div class="header">
-
-        <div class="logo">
-
-            <img
-                src="logo.png"
-                alt="شعار عامل دليفري"
-            >
-
-            <span>
-                عامل دليفري
-            </span>
-
-        </div>
-
-    </div>
-
-</header>
-
-
-<!-- =========================
-     MAIN
-========================= -->
-
-<main>
-
-    <section class="download-box">
-
-        <img
-            src="logo.png"
-            alt="شعار تطبيق عامل دليفري"
-            class="main-logo"
-        >
-
-
-        <div class="badge">
-            التطبيق الرسمي
-        </div>
-
-
-        <h1>
-            عامل دليفري
-            <br>
-            <span>أقرب لك وأسرع في خدمتك</span>
-        </h1>
-
-
-        <p class="description">
-            تطبيق يساعدك على الوصول إلى أصحاب المهن
-            والخدمات بسهولة وسرعة في طبرق، ليبيا.
-        </p>
-
-
-        <!-- DOWNLOAD -->
-
-        <a
-            href="تطبيق عامل دليفري.apk"
-            download="تطبيق عامل دليفري.apk"
-            class="download-button"
-            aria-label="تحميل تطبيق عامل دليفري للأندرويد"
-        >
-
-            <span class="download-icon">
-                ↓
-            </span>
-
-            <span>
-                تحميل تطبيق Android
-            </span>
-
-        </a>
-
-
-        <!-- APP INFO -->
-
-        <div class="app-info">
-
-            <div class="app-info-item">
-                Android
+            <div class="logo-box">
+                <img
+                    src="logo.png"
+                    alt="شعار عامل دليفري"
+                    class="logo">
             </div>
 
-            <div class="app-info-item">
-                التطبيق الرسمي
+            <div class="location">
+                طبرق
             </div>
 
-            <div class="app-info-item">
-                طبرق، ليبيا
-            </div>
+            <h1>عامل دليفري</h1>
 
-        </div>
-
-
-        <!-- CONTACT -->
-
-        <div class="contact-card">
-
-            <div class="contact-title">
-                التواصل مع إدارة المشروع
-            </div>
-
+            <p class="description">
+                منصة تساعدك على الوصول إلى العمال والفنيين
+                والخدمات بسهولة وسرعة.
+            </p>
 
             <a
-                class="contact-item"
-                href="tel:+218920449070"
-            >
-
-                <span class="contact-icon">
-                    ☎
-                </span>
-
-                <span dir="ltr">
-                    +218 92 044 9070
-                </span>
-
-            </a>
-
-
-            <a
-                class="contact-item"
-                href="https://wa.me/218920449070"
+                href="https://working.gt.tc/"
+                class="button"
                 target="_blank"
-                rel="noopener"
-            >
-
-                <span class="contact-icon">
-                    WhatsApp
-                </span>
-
-                <span dir="ltr">
-                    +218 92 044 9070
-                </span>
-
+                rel="noopener noreferrer">
+                دخول المنصة
             </a>
 
+            <div class="line"></div>
 
-            <a
-                class="contact-item"
-                href="mailto:ehamm4599@gmail.com"
-            >
+            <div class="footer">
+                أقرب لك وأسرع في خدمتك
+            </div>
 
-                <span class="contact-icon">
-                    ✉
-                </span>
+        </section>
 
-                <span dir="ltr">
-                    ehamm4599@gmail.com
-                </span>
-
-            </a>
-
-        </div>
-
-    </section>
-
-</main>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-    <div class="footer-brand">
-        عامل دليفري
-    </div>
-
-    <div class="footer-owner">
-        مالك المشروع: حمد اللافي
-    </div>
-
-    <div class="footer-location">
-        طبرق - ليبيا
-    </div>
-
-    <div class="footer-copy">
-        © 2026 عامل دليفري — جميع الحقوق محفوظة
-    </div>
-
-</footer>
-
+    </main>
 
 </body>
 </html>
